@@ -1,24 +1,60 @@
-import React from "react";
-import { TemMessage } from "./TemMessage";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { TemMessage } from "./TemMessage";
 
-export const WelcomePage = (props) => {
+export const WelcomePage = () => {
+  const [inputValues, setInputValues] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputValues((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
-    <>
-      <SDiv>
-        <LeftElement>
-          <SInput placeholder="大学" />
-          <SInput placeholder="大学" />
-          <SInput placeholder="大学" />
-          <SInput placeholder="大学" />
-          <SLink to="/home">{props.children}</SLink>
-        </LeftElement>
-        <RightElement>
-          <TemMessage />
-        </RightElement>
-      </SDiv>
-    </>
+    <SDiv>
+      <LeftElement>
+        <form>
+          <SInput
+            name="university"
+            placeholder="大学"
+            value={inputValues.university || ""}
+            onChange={handleInputChange}
+          />
+          <SInput
+            name="lesson"
+            placeholder="授業"
+            value={inputValues.lesson || ""}
+            onChange={handleInputChange}
+          />
+          <SInput
+            name="date"
+            placeholder="日付"
+            value={inputValues.date || ""}
+            onChange={handleInputChange}
+          />
+          <SInput
+            name="name"
+            placeholder="自分の名前"
+            value={inputValues.name || ""}
+            onChange={handleInputChange}
+          />
+          <Link
+            to={{
+              pathname: "/home",
+              search: `?university=${inputValues.university || ""}&lesson=${
+                inputValues.lesson || ""
+              }&date=${inputValues.date || ""}&name=${inputValues.name || ""}`,
+            }}
+          >
+            <button type="submit">aaa</button>
+          </Link>
+        </form>
+      </LeftElement>
+      <RightElement>
+        <TemMessage />
+      </RightElement>
+    </SDiv>
   );
 };
 
@@ -31,14 +67,7 @@ const SDiv = styled.div`
 `;
 
 const SInput = styled.input`
-  color: red;
-
   margin-bottom: 10%;
-`;
-
-const SLink = styled(Link)`
-  display: block;
-  margin-left: 50%;
 `;
 
 const LeftElement = styled.div`
