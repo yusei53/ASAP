@@ -16,8 +16,20 @@ export const WelcomePage = () => {
       <LeftElement>
         <form>
           <SInput
+            name="teacher"
+            placeholder="教授の名前"
+            value={inputValues.teacher || ""}
+            onChange={handleInputChange}
+          />
+          <SInput
+            name="grade"
+            placeholder="学年"
+            value={inputValues.grade || ""}
+            onChange={handleInputChange}
+          />
+          <SInput
             name="university"
-            placeholder="大学"
+            placeholder="大学学部学科"
             value={inputValues.university || ""}
             onChange={handleInputChange}
           />
@@ -35,8 +47,14 @@ export const WelcomePage = () => {
           />
           <SInput
             name="name"
-            placeholder="自分の名前"
+            placeholder="氏名"
             value={inputValues.name || ""}
+            onChange={handleInputChange}
+          />
+          <SInput
+            name="mail"
+            placeholder="メールアドレス"
+            value={inputValues.mail || ""}
             onChange={handleInputChange}
           />
           <Link
@@ -44,10 +62,14 @@ export const WelcomePage = () => {
               pathname: "/home",
               search: `?university=${inputValues.university || ""}&lesson=${
                 inputValues.lesson || ""
-              }&date=${inputValues.date || ""}&name=${inputValues.name || ""}`,
+              }&date=${inputValues.date || ""}&name=${
+                inputValues.name || ""
+              }&teacher=${inputValues.teacher || ""}&mail=${
+                inputValues.mail || ""
+              }grade=${inputValues.grade}`,
             }}
           >
-            <button type="submit">aaa</button>
+            <button type="submit">作成</button>
           </Link>
         </form>
       </LeftElement>
