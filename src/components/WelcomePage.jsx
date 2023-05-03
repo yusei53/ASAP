@@ -15,18 +15,25 @@ export const WelcomePage = () => {
     <SDiv>
       <LeftElement>
         <form>
-          <SInput
+          <SSelect
             name="teacher"
-            placeholder="教授の名前"
             value={inputValues.teacher || ""}
             onChange={handleInputChange}
-          />
-          <SInput
+          >
+            <option value="sss">教授を選択してください</option>
+            <option value="A先生">A先生</option>
+            <option value="B先生">B先生</option>
+            <option value="C先生">C先生</option>
+          </SSelect>
+          <SSelect
             name="grade"
             placeholder="学年"
             value={inputValues.grade || ""}
             onChange={handleInputChange}
-          />
+          >
+            <option value="sss">学年を選択してください</option>
+            <option value="1">1</option>
+          </SSelect>
           <SInput
             name="university"
             placeholder="大学学部学科"
@@ -57,6 +64,7 @@ export const WelcomePage = () => {
             value={inputValues.mail || ""}
             onChange={handleInputChange}
           />
+
           <Link
             to={{
               pathname: "/home",
@@ -66,7 +74,7 @@ export const WelcomePage = () => {
                 inputValues.name || ""
               }&teacher=${inputValues.teacher || ""}&mail=${
                 inputValues.mail || ""
-              }grade=${inputValues.grade}`,
+              }&grade=${inputValues.grade || ""}`,
             }}
           >
             <button type="submit">作成</button>
@@ -89,6 +97,10 @@ const SDiv = styled.div`
 `;
 
 const SInput = styled.input`
+  margin-bottom: 10%;
+`;
+
+const SSelect = styled.select`
   margin-bottom: 10%;
 `;
 
