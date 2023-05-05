@@ -79,9 +79,9 @@ export const WelcomePage = () => {
           <Link
             to={{
               pathname: "/home",
-              search: `?reason=${inputValues.reason || ""}&grade=${
+              search: `&reason=${inputValues.reason || ""}&grade=${
                 inputValues.grade || ""
-              }?university=${inputValues.university || ""}&lesson=${
+              }&university=${inputValues.university || ""}&lesson=${
                 inputValues.lesson || ""
               }&date=${inputValues.date || ""}&name=${
                 inputValues.name || ""
