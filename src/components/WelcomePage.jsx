@@ -15,69 +15,82 @@ export const WelcomePage = () => {
     <SDiv>
       <LeftElement>
         <form>
-          <SSelect
-            name="teacher"
-            value={inputValues.teacher || ""}
-            onChange={handleInputChange}
-          >
-            <option value="sss">教授を選択してください</option>
-            <option value="A先生">A先生</option>
-            <option value="B先生">B先生</option>
-            <option value="C先生">C先生</option>
-          </SSelect>
-          <SSelect
-            name="grade"
-            placeholder="学年"
-            value={inputValues.grade || ""}
-            onChange={handleInputChange}
-          >
-            <option value="sss">学年を選択してください</option>
-            <option value="1">1</option>
-          </SSelect>
-          <SInput
-            name="university"
-            placeholder="大学学部学科"
-            value={inputValues.university || ""}
-            onChange={handleInputChange}
-          />
-          <SInput
-            name="lesson"
-            placeholder="授業"
-            value={inputValues.lesson || ""}
-            onChange={handleInputChange}
-          />
-          <SInput
-            name="date"
-            placeholder="日付"
-            value={inputValues.date || ""}
-            onChange={handleInputChange}
-          />
-          <SInput
-            name="name"
-            placeholder="氏名"
-            value={inputValues.name || ""}
-            onChange={handleInputChange}
-          />
-          <SInput
-            name="mail"
-            placeholder="メールアドレス"
-            value={inputValues.mail || ""}
-            onChange={handleInputChange}
-          />
-
+          <div>
+            <SelectParent>
+              <SSelect
+                name="reason"
+                value={inputValues.reason || ""}
+                onChange={handleInputChange}
+              >
+                <option value="selectREeason">
+                  欠席理由を選択してください
+                </option>
+                <option value="A先生">就活</option>
+                <option value="B先生">体調不良</option>
+                <option value="C先生">部活</option>
+              </SSelect>
+            </SelectParent>
+            <SSelect
+              name="grade"
+              placeholder="学年"
+              value={inputValues.grade || ""}
+              onChange={handleInputChange}
+            >
+              <option value="sss">学年を選択してください</option>
+              <option value="1">1</option>
+            </SSelect>
+            <SInput
+              name="teacher"
+              placeholder="教授の名前"
+              value={inputValues.teacher || ""}
+              onChange={handleInputChange}
+            />
+            <SInput
+              name="university"
+              placeholder="大学学部学科"
+              value={inputValues.university || ""}
+              onChange={handleInputChange}
+            />
+            <SInput
+              name="lesson"
+              placeholder="授業"
+              value={inputValues.lesson || ""}
+              onChange={handleInputChange}
+            />
+            <SInput
+              name="date"
+              placeholder="日付"
+              value={inputValues.date || ""}
+              onChange={handleInputChange}
+            />
+            <SInput
+              name="name"
+              placeholder="氏名"
+              value={inputValues.name || ""}
+              onChange={handleInputChange}
+            />
+            <SInput
+              name="mail"
+              placeholder="メールアドレス"
+              value={inputValues.mail || ""}
+              onChange={handleInputChange}
+            />
+          </div>
           <Link
             to={{
               pathname: "/home",
-              search: `?university=${inputValues.university || ""}&lesson=${
+              search: `?reason=${inputValues.reason || ""}&grade=${
+                inputValues.grade || ""
+              }?university=${inputValues.university || ""}&lesson=${
                 inputValues.lesson || ""
               }&date=${inputValues.date || ""}&name=${
                 inputValues.name || ""
               }&teacher=${inputValues.teacher || ""}&mail=${
                 inputValues.mail || ""
-              }&grade=${inputValues.grade || ""}`,
+              }`,
             }}
           >
-            <button type="submit">作成</button>
+            <SButton type="submit">作成</SButton>
           </Link>
         </form>
       </LeftElement>
@@ -113,4 +126,12 @@ const RightElement = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const SButton = styled.button`
+  margin-left: 50%;
+`;
+
+const SelectParent = styled.div`
+  margin-left: 40%;
 `;
