@@ -5,7 +5,7 @@ export const TemMessage = (props) => {
   return (
     <SBox>
       {teacher}先生 いつもご指導いただきありがとうございます。 <br />
-      {university} {grade} {name}です。
+      {university} {grade}年 {name}です。
       <br />
       <br />
       <br />
