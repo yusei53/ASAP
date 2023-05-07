@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
-export const TemMessage = () => {
+export const TemMessage = (props) => {
+  const { teacher, university, grade, name, date, lesson, mail } = props;
   return (
     <SBox>
-      □□先生 いつもご指導いただきありがとうございます。 <br />
-      △△学部××学部 〇年 田雲花子です。
+      {teacher}先生 いつもご指導いただきありがとうございます。 <br />
+      {university} {grade} {name}です。
       <br />
       <br />
       <br />
       本日は体調を崩し、授業を受けられそうにありません。
       <br />
       <br />
-      申し訳ありませんが、本日2限目の〇〇（授業名）の授業は欠席させてください。
+      申し訳ありませんが、{date}2限目の{lesson}の授業は欠席させてください。
       <br />
       <br />
       また、本日の課題がございましたら教えていただけると幸いです。
@@ -21,9 +22,8 @@ export const TemMessage = () => {
       <br />
       ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ <br />
       <br />
-      〇〇大学△△学部××学科 〇年 田雲花子 <br />
-      メール : XXXXXX@XXXXX.ac.jp <br />
-      携帯電話：090-○○○○-×××× <br />
+      {university} {grade} {name} <br />
+      メール : {mail} <br />
       <br />
       ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     </SBox>
