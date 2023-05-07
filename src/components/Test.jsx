@@ -29,6 +29,11 @@ export const Test = () => {
   return (
     <SDiv>
       <div id="copy-text">
+        <div>
+          <button onClick={copyToClipboard}>
+            {isCopied ? "Copied!" : "Copy to Clipboard"}
+          </button>
+        </div>
         <TemMessage
           teacher={teacher}
           name={name}
@@ -40,9 +45,6 @@ export const Test = () => {
           mail={mail}
         />
       </div>
-      <button onClick={copyToClipboard}>
-        {isCopied ? "Copied!" : "Copy to Clipboard"}
-      </button>
     </SDiv>
   );
 };
