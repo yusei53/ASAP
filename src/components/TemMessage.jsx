@@ -1,7 +1,18 @@
 import styled from "styled-components";
 
 export const TemMessage = (props) => {
-  const { teacher, university, grade, name, date, time, lesson, mail } = props;
+  const {
+    teacher,
+    university,
+    grade,
+    name,
+    date,
+    time,
+    lesson,
+    id,
+    mail,
+    number,
+  } = props;
   return (
     <SBox>
       {teacher}先生 お忙しいところ失礼致します。 <br />
@@ -22,12 +33,19 @@ export const TemMessage = (props) => {
       <br />
       <br />
       <br />
-      ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ <br />
+      ーーーーーーーーーーーーーーーーーーーーーーーーーーーー <br />
       <br />
-      {university} {grade} {name} <br />
-      メール : {mail} <br />
+      {name}
       <br />
-      ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+      {university} {grade}
+      <br />
+      学籍番号 : {id}
+      <br />
+      メール : {mail}
+      <br />
+      電話番号 : {number}
+      <br />
+      ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     </SBox>
   );
 };

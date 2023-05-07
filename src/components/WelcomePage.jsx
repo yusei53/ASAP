@@ -79,9 +79,21 @@ export const WelcomePage = () => {
                 onChange={handleInputChange}
               />
               <SInput
+                name="id"
+                placeholder="学籍番号"
+                value={inputValues.id || ""}
+                onChange={handleInputChange}
+              />
+              <SInput
                 name="mail"
                 placeholder="メールアドレス"
                 value={inputValues.mail || ""}
+                onChange={handleInputChange}
+              />
+              <SInput
+                name="number"
+                placeholder="電話番号"
+                value={inputValues.number || ""}
                 onChange={handleInputChange}
               />
             </div>
@@ -97,7 +109,9 @@ export const WelcomePage = () => {
                 inputValues.name || ""
               }&teacher=${inputValues.teacher || ""}&mail=${
                 inputValues.mail || ""
-              }&time=${inputValues.time || ""}`,
+              }&time=${inputValues.time || ""}&id=${
+                inputValues.id || ""
+              }&number=${inputValues.number || ""}`,
             }}
           >
             <SButton type="submit">作成</SButton>
@@ -114,6 +128,8 @@ export const WelcomePage = () => {
           time="{ 何限目 }"
           lesson="{ 講義名 }"
           mail="{ 自身のメールアドレス }"
+          id="{ 学籍番号 }"
+          number="{ 電話番号 }"
         />
       </RightElement>
     </SDiv>
