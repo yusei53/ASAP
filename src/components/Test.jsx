@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
 import { TemMessage } from "./TemMessage";
+import { IoCopySharp } from "react-icons/io5";
 
 export const Test = () => {
   const location = useLocation();
@@ -30,7 +31,7 @@ export const Test = () => {
     <SDiv>
       <div id="copy-text">
         <div>
-          <button onClick={copyToClipboard}>
+          <button startIcon={<IoCopySharp />} onClick={copyToClipboard}>
             {isCopied ? "Copied!" : "Copy to Clipboard"}
           </button>
         </div>
