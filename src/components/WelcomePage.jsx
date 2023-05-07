@@ -17,6 +17,7 @@ export const WelcomePage = () => {
         <form>
           <div>
             <SelectParent>
+              <div>step1. 欠席理由を選択してね！</div>
               <SSelect
                 name="reason"
                 value={inputValues.reason || ""}
@@ -30,48 +31,60 @@ export const WelcomePage = () => {
                 <option value="C先生">部活</option>
               </SSelect>
             </SelectParent>
-            <SInput
-              name="teacher"
-              placeholder="教授の名前"
-              value={inputValues.teacher || ""}
-              onChange={handleInputChange}
-            />
-            <SInput
-              name="grade"
-              placeholder="学年（数字のみ）"
-              value={inputValues.grade || ""}
-              onChange={handleInputChange}
-            />
-            <SInput
-              name="university"
-              placeholder="大学学部学科"
-              value={inputValues.university || ""}
-              onChange={handleInputChange}
-            />
-            <SInput
-              name="name"
-              placeholder="氏名"
-              value={inputValues.name || ""}
-              onChange={handleInputChange}
-            />
-            <SInput
-              name="date"
-              placeholder="日付"
-              value={inputValues.date || ""}
-              onChange={handleInputChange}
-            />
-            <SInput
-              name="lesson"
-              placeholder="講義名"
-              value={inputValues.lesson || ""}
-              onChange={handleInputChange}
-            />
-            <SInput
-              name="mail"
-              placeholder="メールアドレス"
-              value={inputValues.mail || ""}
-              onChange={handleInputChange}
-            />
+            <div>
+              <SStep2>
+                step2. 隣のテンプレート文を参考に、以下を入力してね！
+              </SStep2>
+              <SInput
+                name="teacher"
+                placeholder="教授の名前"
+                value={inputValues.teacher || ""}
+                onChange={handleInputChange}
+              />
+              <SInput
+                name="university"
+                placeholder="大学学部学科"
+                value={inputValues.university || ""}
+                onChange={handleInputChange}
+              />
+              <SInput
+                name="grade"
+                placeholder="学年（数字のみ）"
+                value={inputValues.grade || ""}
+                onChange={handleInputChange}
+              />
+
+              <SInput
+                name="name"
+                placeholder="氏名"
+                value={inputValues.name || ""}
+                onChange={handleInputChange}
+              />
+              <SInput
+                name="date"
+                placeholder="日付（◯月◯日)"
+                value={inputValues.date || ""}
+                onChange={handleInputChange}
+              />
+              <SInput
+                name="time"
+                placeholder="何限目（数字のみ）"
+                value={inputValues.time || ""}
+                onChange={handleInputChange}
+              />
+              <SInput
+                name="lesson"
+                placeholder="講義名"
+                value={inputValues.lesson || ""}
+                onChange={handleInputChange}
+              />
+              <SInput
+                name="mail"
+                placeholder="メールアドレス"
+                value={inputValues.mail || ""}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
           <Link
             to={{
@@ -84,7 +97,7 @@ export const WelcomePage = () => {
                 inputValues.name || ""
               }&teacher=${inputValues.teacher || ""}&mail=${
                 inputValues.mail || ""
-              }`,
+              }&time=${inputValues.time || ""}`,
             }}
           >
             <SButton type="submit">作成</SButton>
@@ -97,7 +110,8 @@ export const WelcomePage = () => {
           university="{ 大学学部学科 }"
           grade="{ 学年 }"
           name="{ 氏名 }"
-          date="{ 日付（○月○日）}"
+          date="{ 日付（○月○日) }"
+          time="{ 何限目 }"
           lesson="{ 講義名 }"
           mail="{ 自身のメールアドレス }"
         />
@@ -119,6 +133,7 @@ const SInput = styled.input`
 `;
 
 const SSelect = styled.select`
+  margin-top: 2%;
   margin-bottom: 10%;
 `;
 
@@ -138,5 +153,11 @@ const SButton = styled.button`
 `;
 
 const SelectParent = styled.div`
-  margin-left: 40%;
+  margin-top: -14%;
+  margin-left: 35%;
+`;
+
+const SStep2 = styled.div`
+  margin-left: 20%;
+  margin-top: 5%;
 `;
