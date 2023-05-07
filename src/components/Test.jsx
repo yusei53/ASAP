@@ -14,6 +14,7 @@ export const Test = () => {
   const university = searchParams.get("university");
   const lesson = searchParams.get("lesson");
   const date = searchParams.get("date");
+  const time = searchParams.get("time");
   const name = searchParams.get("name");
 
   const [isCopied, setIsCopied] = useState(false);
@@ -35,6 +36,7 @@ export const Test = () => {
           university={university}
           date={date}
           grade={grade}
+          time={time}
           mail={mail}
         />
       </div>
