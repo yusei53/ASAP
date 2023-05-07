@@ -95,7 +95,12 @@ export const WelcomePage = () => {
         </form>
       </LeftElement>
       <RightElement>
-        <TemMessage />
+        <TemMessage
+          teacher="{ 教授の名前 }"
+          university="{ 大学学部学科 }"
+          grade="{ 学年 }"
+          name="{ 氏名 }"
+        />
       </RightElement>
     </SDiv>
   );
