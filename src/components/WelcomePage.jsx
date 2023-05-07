@@ -30,19 +30,16 @@ export const WelcomePage = () => {
                 <option value="C先生">部活</option>
               </SSelect>
             </SelectParent>
-            <SSelect
-              name="grade"
-              placeholder="学年"
-              value={inputValues.grade || ""}
-              onChange={handleInputChange}
-            >
-              <option value="sss">学年を選択してください</option>
-              <option value="1">1</option>
-            </SSelect>
             <SInput
               name="teacher"
               placeholder="教授の名前"
               value={inputValues.teacher || ""}
+              onChange={handleInputChange}
+            />
+            <SInput
+              name="grade"
+              placeholder="学年（数字のみ）"
+              value={inputValues.grade || ""}
               onChange={handleInputChange}
             />
             <SInput
@@ -52,9 +49,9 @@ export const WelcomePage = () => {
               onChange={handleInputChange}
             />
             <SInput
-              name="lesson"
-              placeholder="授業"
-              value={inputValues.lesson || ""}
+              name="name"
+              placeholder="氏名"
+              value={inputValues.name || ""}
               onChange={handleInputChange}
             />
             <SInput
@@ -64,9 +61,9 @@ export const WelcomePage = () => {
               onChange={handleInputChange}
             />
             <SInput
-              name="name"
-              placeholder="氏名"
-              value={inputValues.name || ""}
+              name="lesson"
+              placeholder="講義名"
+              value={inputValues.lesson || ""}
               onChange={handleInputChange}
             />
             <SInput
@@ -100,6 +97,9 @@ export const WelcomePage = () => {
           university="{ 大学学部学科 }"
           grade="{ 学年 }"
           name="{ 氏名 }"
+          date="{ 日付（○月○日）}"
+          lesson="{ 講義名 }"
+          mail="{ 自身のメールアドレス }"
         />
       </RightElement>
     </SDiv>
