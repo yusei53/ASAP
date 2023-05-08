@@ -177,3 +177,8 @@ const SStep2 = styled.div`
   margin-left: 20%;
   margin-top: 5%;
 `;
+
+const SCopyButton = styled.div`
+  position: fixed;
+  top: 10%;
+`;
