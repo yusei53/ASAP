@@ -30,9 +30,9 @@ export const Test = () => {
     <SDiv>
       <div id="copy-text">
         <SCopyButton>
-          <button onClick={copyToClipboard}>
+          <CopyButton onClick={copyToClipboard}>
             {isCopied ? "Copied!" : "Copy"}
-          </button>
+          </CopyButton>
         </SCopyButton>
         <TemMessage
           teacher={teacher}
@@ -50,11 +50,15 @@ export const Test = () => {
 };
 
 const SDiv = styled.div`
-  margin-: 10%;
+
 `;
 
 const SCopyButton = styled.div`
-  position: fixed;
-  top: 5.5%;
-  right: 25%;
+  margin-top:-9%;
+  margin-left: 100%;
+  
 `;
+
+const CopyButton = styled.button`
+  padding:4px 8px;
+`
