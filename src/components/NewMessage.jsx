@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TemMessage = (props) => {
+export const NewMessage = (props) => {
   const {
     teacher,
     university,
@@ -20,7 +20,7 @@ export const TemMessage = (props) => {
       <br />
       <br />
       <br />
-      本日、体調を崩してしまい、授業を受けられそうにありません。
+      本日ですが、就職活動のため欠席させていただきます。
       <br />
       <br />
       申し訳ありませんが、{date} {time}限の{lesson}の授業は欠席させてください。
