@@ -16,6 +16,9 @@ export const Test = () => {
   const date = searchParams.get("date");
   const time = searchParams.get("time");
   const name = searchParams.get("name");
+  const id = searchParams.get("id");
+  const number = searchParams.get("number");
+  const reason = searchParams.get("reason")
 
   const [isCopied, setIsCopied] = useState(false);
 
@@ -43,6 +46,9 @@ export const Test = () => {
           grade={grade}
           time={time}
           mail={mail}
+          id={id}
+          number={number}
+          reason={reason}
         />
       </div>
     </SDiv>

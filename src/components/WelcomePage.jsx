@@ -28,7 +28,9 @@ export const WelcomePage = () => {
                 </option>
                 <option value="recruitment">就活</option>
                 <option value="fever">体調不良</option>
-                <option value="C先生">部活</option>
+                <option value="funeral">身内の不幸</option>
+                <option value="marry">結婚式</option>
+                <option value="delay">交通機関の遅延</option>
               </SSelect>
             </SelectParent>
             <div>

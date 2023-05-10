@@ -22,10 +22,19 @@ export const TemMessage = (props) => {
   useEffect(() => {
     switch (reason) {
       case 'fever':
-        setReasonText('体調を崩してしまい');
+        setReasonText('本日なのですが、体調を崩してしまい、講義を受けられそうにありません。');
         break;
       case 'recruitment':
-        setReasonText('就活のため');
+        setReasonText('本日なのですが、就職活動のため、講義を受けれそうにありません。');
+        break;
+      case 'funeral':
+        setReasonText('先日、身内に不幸があったため、急遽欠席させていただきたく、失礼とは存じますがここに取り急ぎメールにてご連絡させていただきます。');
+        break;
+      case 'marry':
+        setReasonText('本日なのですが、冠婚葬祭のため、講義を受けれそうにありません。');
+        break;
+      case 'delay':
+        setReasonText('ただいま大学に向かっているのですが、人身事故の影響で電車が止まってしまい、講義時間内の到着が難しいとのことです。');
         break;
       default:
         break;
@@ -42,7 +51,7 @@ export const TemMessage = (props) => {
       {reasonText}
       <br />
       <br />
-      申し訳ありませんが、{date} {time}限の{lesson}の授業は欠席させてください。
+      申し訳ありませんが、{date} {time}限の{lesson}の講義は欠席させてください。
       <br />
       <br />
       また、本日の課題がございましたら教えていただけると幸いです。
