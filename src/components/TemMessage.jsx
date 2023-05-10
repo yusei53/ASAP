@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
+
 
 export const TemMessage = (props) => {
   const {
@@ -12,7 +14,24 @@ export const TemMessage = (props) => {
     id,
     mail,
     number,
+    reason,
   } = props;
+
+  const [reasonText, setReasonText] = useState('');
+
+  useEffect(() => {
+    switch (reason) {
+      case 'fever':
+        setReasonText('体調を崩してしまい');
+        break;
+      case 'recruitment':
+        setReasonText('就活のため');
+        break;
+      default:
+        break;
+    }
+  }, [reason])
+
   return (
     <SBox>
       {teacher}先生 お忙しいところ失礼致します。 <br />
@@ -20,7 +39,7 @@ export const TemMessage = (props) => {
       <br />
       <br />
       <br />
-      本日、体調を崩してしまい、授業を受けられそうにありません。
+      {reasonText}
       <br />
       <br />
       申し訳ありませんが、{date} {time}限の{lesson}の授業は欠席させてください。
