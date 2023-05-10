@@ -18,7 +18,7 @@ export const WelcomePage = () => {
           <div>
             <SelectParent>
               <div>step1. 欠席理由を選択してね！</div>
-              <SSelect
+<SSelect
                 name="reason"
                 value={inputValues.reason || ""}
                 onChange={handleInputChange}
@@ -26,8 +26,8 @@ export const WelcomePage = () => {
                 <option value="selectREeason">
                   欠席理由を選択してください
                 </option>
-                <option value="A先生">就活</option>
-                <option value="B先生">体調不良</option>
+                <option value="recruitment">就活</option>
+                <option value="fever">体調不良</option>
                 <option value="C先生">部活</option>
               </SSelect>
             </SelectParent>
@@ -119,7 +119,7 @@ export const WelcomePage = () => {
         </form>
       </LeftElement>
       <RightElement>
-        <TemMessage
+<TemMessage
           teacher="{ 教授の名前 }"
           university="{ 大学学部学科 }"
           grade="{ 学年 }"
@@ -130,6 +130,7 @@ export const WelcomePage = () => {
           mail="{ 自身のメールアドレス }"
           id="{ 学籍番号 }"
           number="{ 電話番号 }"
+          reason={inputValues.reason}
         />
       </RightElement>
     </SDiv>
