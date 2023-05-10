@@ -37,6 +37,7 @@ export const WelcomePage = () => {
               <SStep2>
                 step2. 隣のテンプレート文を参考に、以下を入力してね！
               </SStep2>
+              <SElement>
               <SInput
                 name="teacher"
                 placeholder="教授の名前"
@@ -62,6 +63,8 @@ export const WelcomePage = () => {
                 value={inputValues.name || ""}
                 onChange={handleInputChange}
               />
+              </SElement>
+              <SNextElement>
               <SInput
                 name="date"
                 placeholder="日付（◯月◯日)"
@@ -80,6 +83,8 @@ export const WelcomePage = () => {
                 value={inputValues.lesson || ""}
                 onChange={handleInputChange}
               />
+              </SNextElement>
+              <SNextElement>
               <SInput
                 name="id"
                 placeholder="学籍番号"
@@ -98,6 +103,7 @@ export const WelcomePage = () => {
                 value={inputValues.number || ""}
                 onChange={handleInputChange}
               />
+              </SNextElement>
             </div>
           </div>
           <Link
@@ -172,7 +178,7 @@ const SButton = styled.button`
 `;
 
 const SelectParent = styled.div`
-  margin-top: -14%;
+
   margin-left: 35%;
 `;
 
@@ -180,3 +186,11 @@ const SStep2 = styled.div`
   margin-left: 20%;
   margin-top: 5%;
 `;
+
+const SElement = styled.div`
+padding-left:5%;
+`
+
+const SNextElement = styled.div`
+padding-left:15%;
+`
