@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Header } from "./Header";
 import { TemMessage } from "./TemMessage";
 
 export const WelcomePage = () => {
@@ -12,18 +13,21 @@ export const WelcomePage = () => {
   };
 
   return (
+    <>
+    <SBDiv>
+          <Header />
     <SDiv>
       <LeftElement>
         <form>
           <div>
             <SelectParent>
               <div>step1. 欠席理由を選択してね！</div>
-<SSelect
+              <SSelect
                 name="reason"
                 value={inputValues.reason || ""}
                 onChange={handleInputChange}
               >
-                <option value="selectREeason">
+                <option value="selectReeason">
                   欠席理由を選択してください
                 </option>
                 <option value="recruitment">就活</option>
@@ -142,15 +146,22 @@ export const WelcomePage = () => {
         />
       </RightElement>
     </SDiv>
+    </SBDiv>
+    </>
+
   );
 };
+
+const SBDiv = styled.div`
+  height: 100vh;
+  background-color: #e6f9f8;
+`
 
 const SDiv = styled.div`
   display: flex;
   align-items: center;
-  height: 100vh;
   justify-content: space-between;
-  background-color: #e6f9f8;
+
 `;
 
 const SInput = styled.input`
@@ -164,13 +175,13 @@ const SSelect = styled.select`
 
 const LeftElement = styled.div`
   width: 50%;
+    margin-top: 3%;
 `;
 
 const RightElement = styled.div`
   width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 4%;
+
 `;
 
 const SButton = styled.button`
@@ -178,7 +189,6 @@ const SButton = styled.button`
 `;
 
 const SelectParent = styled.div`
-
   margin-left: 35%;
 `;
 

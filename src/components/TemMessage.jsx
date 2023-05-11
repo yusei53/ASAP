@@ -80,7 +80,6 @@ export const TemMessage = (props) => {
 
 const SBox = styled.div`
   background-color: white;
-  margin-right: 10px;
-  margin-top: 8%;
+  margin-right: 20px;
   padding: 18px;
 `;

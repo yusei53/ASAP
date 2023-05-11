@@ -18,7 +18,7 @@ export const Test = () => {
   const name = searchParams.get("name");
   const id = searchParams.get("id");
   const number = searchParams.get("number");
-  const reason = searchParams.get("reason")
+  const reason = searchParams.get("reason");
 
   const [isCopied, setIsCopied] = useState(false);
 
