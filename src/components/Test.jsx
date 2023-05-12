@@ -31,12 +31,12 @@ export const Test = () => {
 
   return (
     <SDiv>
+      <SCopyButton>
+        <CopyButton onClick={copyToClipboard}>
+          {isCopied ? "Copied!" : "Copy"}
+        </CopyButton>
+      </SCopyButton>
       <div id="copy-text">
-        <SCopyButton>
-          <CopyButton onClick={copyToClipboard}>
-            {isCopied ? "Copied!" : "Copy"}
-          </CopyButton>
-        </SCopyButton>
         <TemMessage
           teacher={teacher}
           name={name}
@@ -55,16 +55,13 @@ export const Test = () => {
   );
 };
 
-const SDiv = styled.div`
-
-`;
+const SDiv = styled.div``;
 
 const SCopyButton = styled.div`
-  margin-top:-9%;
+  margin-top: -9%;
   margin-left: 100%;
-  
 `;
 
 const CopyButton = styled.button`
-  padding:4px 8px;
-`
+  padding: 4px 8px;
+`;
