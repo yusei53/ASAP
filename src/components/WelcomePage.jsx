@@ -13,6 +13,15 @@ export const WelcomePage = () => {
     console.log(inputValues);
   };
 
+  const [isCopied, setIsCopied] = useState(false);
+
+  const copyToClipboard = () => {
+    const copyText = document.querySelector("#copy-text");
+    navigator.clipboard.writeText(copyText.innerText);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1000);
+  };
+
   return (
     <>
       <SBDiv>
@@ -132,19 +141,26 @@ export const WelcomePage = () => {
             </form>
           </LeftElement>
           <RightElement>
-            <TemMessage
-              teacher={inputValues.teacher || "{ 教授の名前 }"}
-              university={inputValues.university || "{ 大学学部学科 }"}
-              grade={inputValues.grade || "{ 学年 }"}
-              name={inputValues.name || "{ 氏名 }"}
-              date={inputValues.date || "{ 日付（○月○日) }"}
-              time={inputValues.time || "{ 何限目 }"}
-              lesson={inputValues.lesson || "{ 講義名 }"}
-              mail={inputValues.mail || "{ 自身のメールアドレス }"}
-              id={inputValues.id || "{ 学籍番号 }"}
-              number={inputValues.number || "{ 電話番号 }"}
-              reason={inputValues.reason}
-            />
+            <SCopyButton>
+              <CopyButton onClick={copyToClipboard}>
+                {isCopied ? "Copied!" : "Copy"}
+              </CopyButton>
+            </SCopyButton>
+            <div id="copy-text">
+              <TemMessage
+                teacher={inputValues.teacher || "{ 教授の名前 }"}
+                university={inputValues.university || "{ 大学学部学科 }"}
+                grade={inputValues.grade || "{ 学年 }"}
+                name={inputValues.name || "{ 氏名 }"}
+                date={inputValues.date || "{ 日付（○月○日) }"}
+                time={inputValues.time || "{ 何限目 }"}
+                lesson={inputValues.lesson || "{ 講義名 }"}
+                mail={inputValues.mail || "{ 自身のメールアドレス }"}
+                id={inputValues.id || "{ 学籍番号 }"}
+                number={inputValues.number || "{ 電話番号 }"}
+                reason={inputValues.reason}
+              />
+            </div>
           </RightElement>
         </SDiv>
       </SBDiv>
@@ -201,4 +217,14 @@ const SElement = styled.div`
 
 const SNextElement = styled.div`
   padding-left: 15%;
+`;
+
+const SCopyButton = styled.div`
+  position: absolute;
+  right: 3%;
+  margin-top: 15px;
+`;
+
+const CopyButton = styled.button`
+  padding: 4px 8px;
 `;
