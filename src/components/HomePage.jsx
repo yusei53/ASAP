@@ -27,7 +27,7 @@ const SBox = styled.div`
   background-color: white;
   width: 40%;
   margin-left: 25%; /* 左側のマージンを50% - (ボックス幅の半分) に設定 */
-  padding: 5%;
+  padding: 4%;
   display: flex;
   justify-content: center;
   align-items: flex-end;

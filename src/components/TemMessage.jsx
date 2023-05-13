@@ -61,11 +61,6 @@ export const TemMessage = (props) => {
 
   return (
     <SBox>
-      <SCopyButton>
-        <CopyButton onClick={copyToClipboard}>
-          {isCopied ? "Copied!" : "Copy"}
-        </CopyButton>
-      </SCopyButton>
       <div id="copy-text" className="pt-25">
         {teacher}先生 お忙しいところ失礼致します。 <br />
         {university} {grade}年 {name}です。
@@ -108,6 +103,7 @@ const SBox = styled.div`
   background-color: white;
   margin-right: 20px;
   padding: 18px;
+  padding-top: 7%;
 `;
 
 const SCopyButton = styled.div`
@@ -117,4 +113,5 @@ const SCopyButton = styled.div`
 
 const CopyButton = styled.button`
   padding: 4px 8px;
+  margin: 5px -5px;
 `;

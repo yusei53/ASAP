@@ -58,10 +58,11 @@ export const Test = () => {
 const SDiv = styled.div``;
 
 const SCopyButton = styled.div`
-  margin-top: -9%;
+  margin-top: -10%;
   margin-left: 100%;
 `;
 
 const CopyButton = styled.button`
   padding: 4px 8px;
+  margin: 10px -10px;
 `;
