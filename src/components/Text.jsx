@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-export const TemMessage = (props) => {
+export const Text = (props) => {
   const {
     teacher,
     university,
@@ -52,7 +52,7 @@ export const TemMessage = (props) => {
 
   return (
     <SBox>
-      <Text>
+      <SText>
         {teacher}先生 お忙しいところ失礼致します。 <br />
         {university} {grade}年 {name}です。
         <br />
@@ -76,7 +76,7 @@ export const TemMessage = (props) => {
         <br />
         {name}
         <br />
-        {university} {grade}
+        {university} {grade}年
         <br />
         学籍番号 : {id}
         <br />
@@ -85,7 +85,7 @@ export const TemMessage = (props) => {
         電話番号 : {number}
         <br />
         ーーーーーーーーーーーーーーーーーー
-      </Text>
+      </SText>
     </SBox>
   );
 };
@@ -99,7 +99,7 @@ const SBox = styled.div`
   }
 `;
 
-const Text = styled.div`
+const SText = styled.div`
   padding-top: 25px;
   @media (max-width: 600px) {
     font-size: 13px;

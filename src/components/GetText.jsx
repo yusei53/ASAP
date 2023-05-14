@@ -2,9 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
-import { TemMessage } from "./TemMessage";
+import { Text } from "./Text";
 
-export const Test = () => {
+export const GetText = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
@@ -37,7 +37,7 @@ export const Test = () => {
         </CopyButton>
       </SCopyButton>
       <CopyText id="copy-text">
-        <TemMessage
+        <Text
           teacher={teacher}
           name={name}
           lesson={lesson}
@@ -70,4 +70,5 @@ const CopyButton = styled.button`
 
 const CopyText = styled.div`
   margin-top: -4%;
+  width: 100%;
 `;
