@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Header } from "./Header";
-import { TemMessage } from "./TemMessage";
+import { Text } from "./Text";
 
 export const WelcomePage = () => {
   const [inputValues, setInputValues] = useState({});
@@ -156,7 +156,7 @@ export const WelcomePage = () => {
               </CopyButton>
             </SCopyButton>
             <SCopyText id="copy-text">
-              <TemMessage
+              <Text
                 teacher={inputValues.teacher || "{ 教授の名前 }"}
                 university={inputValues.university || "{ 大学学部学科 }"}
                 grade={inputValues.grade || "{ 学年 }"}

@@ -1,7 +1,6 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { Test } from "./Test";
+import { GetText } from "./GetText";
 import { Header } from "./Header";
 
 export const HomePage = () => {
@@ -9,7 +8,7 @@ export const HomePage = () => {
     <SBDiv>
       <Header />
       <SBox>
-        <Test />
+        <GetText />
       </SBox>
     </SBDiv>
   );
