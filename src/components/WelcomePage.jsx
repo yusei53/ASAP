@@ -31,7 +31,15 @@ export const WelcomePage = () => {
             <form style={{ textAlign: "center" }}>
               <div>
                 <SelectParent>
-                  <div>step1. 欠席理由を選択してね！</div>
+                  <div
+                    style={{
+                      marginTop: "7%",
+                      fontWeight: "500",
+                      fontSize: "17px",
+                    }}
+                  >
+                    step1. 欠席理由を選択してね！
+                  </div>
                   <SSelect
                     name="reason"
                     value={inputValues.reason || ""}
@@ -47,12 +55,12 @@ export const WelcomePage = () => {
                     <option value="delay">交通機関の遅延</option>
                   </SSelect>
                 </SelectParent>
-                <div>
+                <SelectParent2>
                   <SStep2>
                     step2. 隣のテンプレート文を参考に、以下を入力してね！
                   </SStep2>
                   <SMobile>step2. 下の欄を入力してね！</SMobile>
-                  <div>
+                  <SElement>
                     <SInput
                       name="teacher"
                       placeholder="教授の名前"
@@ -71,15 +79,14 @@ export const WelcomePage = () => {
                       value={inputValues.grade || ""}
                       onChange={handleInputChange}
                     />
-
                     <SInput
                       name="name"
                       placeholder="氏名"
                       value={inputValues.name || ""}
                       onChange={handleInputChange}
                     />
-                  </div>
-                  <div>
+                  </SElement>
+                  <SElement>
                     <SInput
                       name="date"
                       placeholder="日付（◯月◯日)"
@@ -98,8 +105,7 @@ export const WelcomePage = () => {
                       value={inputValues.lesson || ""}
                       onChange={handleInputChange}
                     />
-                  </div>
-                  <div>
+
                     <SInput
                       name="id"
                       placeholder="学籍番号"
@@ -118,8 +124,8 @@ export const WelcomePage = () => {
                       value={inputValues.number || ""}
                       onChange={handleInputChange}
                     />
-                  </div>
-                </div>
+                  </SElement>
+                </SelectParent2>
               </div>
               <Link
                 to={{
@@ -137,7 +143,9 @@ export const WelcomePage = () => {
                   }&number=${inputValues.number || ""}`,
                 }}
               >
-                <button type="submit">作成</button>
+                <button type="submit" style={{ marginBottom: "10px" }}>
+                  作成
+                </button>
               </Link>
             </form>
           </LeftElement>
@@ -147,7 +155,7 @@ export const WelcomePage = () => {
                 {isCopied ? "Copied!" : "Copy"}
               </CopyButton>
             </SCopyButton>
-            <div id="copy-text">
+            <SCopyText id="copy-text">
               <TemMessage
                 teacher={inputValues.teacher || "{ 教授の名前 }"}
                 university={inputValues.university || "{ 大学学部学科 }"}
@@ -161,7 +169,7 @@ export const WelcomePage = () => {
                 number={inputValues.number || "{ 電話番号 }"}
                 reason={inputValues.reason}
               />
-            </div>
+            </SCopyText>
           </RightElement>
         </SDiv>
       </SBDiv>
@@ -177,9 +185,7 @@ const SBDiv = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  @media (max-width: 600px) {
-    overflow-y: scroll;
-  }
+  overflow-y: scroll;
 `;
 
 const SDiv = styled.div`
@@ -192,24 +198,44 @@ const SDiv = styled.div`
 `;
 
 const SInput = styled.input`
-  margin-bottom: 10%;
+  margin-bottom: 8%;
+  padding-right: 10px;
+  height: 18px;
+  @media (max-width: 600px) {
+    margin-bottom: 5%;
+    border-radius: 9999px;
+    border: 1px solid #767676;
+  }
+  @media (max-width: 540px) {
+    padding-right: 50px;
+  }
 `;
 
 const SSelect = styled.select`
   margin-top: 2%;
-  margin-bottom: 10%;
+  margin-bottom: 8%;
+  height: 25px;
+  border-radius: 9999px;
 `;
 
 const LeftElement = styled.div`
   width: 50%;
   margin-top: 3%;
+  @media (max-width: 600px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const RightElement = styled.div`
   width: 50%;
-  margin-top: 4%;
+  margin-top: 3%;
+  margin-right: 2%;
   @media (max-width: 600px) {
     width: 95%;
+    margin-right: 0;
   }
 `;
 
@@ -224,7 +250,10 @@ const SelectParent = styled.div`
 `;
 
 const SStep2 = styled.div`
-  margin-top: 5%;
+  margin-top: 3%;
+  margin-bottom: 2%;
+  font-weight: 500;
+  font-size: 17px;
   @media (max-width: 600px) {
     display: none;
   }
@@ -232,8 +261,11 @@ const SStep2 = styled.div`
 
 const SCopyButton = styled.div`
   position: absolute;
-  right: 3%;
+  right: 4%;
   margin-top: 15px;
+  @media (max-width: 600px) {
+    right: 8%;
+  }
 `;
 
 const CopyButton = styled.button`
@@ -248,5 +280,23 @@ const SMobile = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2%;
+    font-weight: 500;
   }
+`;
+
+const SElement = styled.div`
+  width: 58%;
+`;
+
+const SelectParent2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const SCopyText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
