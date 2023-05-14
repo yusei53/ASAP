@@ -92,10 +92,16 @@ export const TemMessage = (props) => {
 
 const SBox = styled.div`
   background-color: white;
-  margin-right: 20px;
-  padding: 18px;
+  width: 93%;
+  padding: 16px;
+  @media (max-width: 600px) {
+    width: 88%;
+  }
 `;
 
 const Text = styled.div`
-  padding-top: 20px;
+  padding-top: 25px;
+  @media (max-width: 600px) {
+    font-size: 13px;
+  }
 `;
