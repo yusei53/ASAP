@@ -28,7 +28,7 @@ export const WelcomePage = () => {
         <Header />
         <SDiv>
           <LeftElement>
-            <form>
+            <form style={{ textAlign: "center" }}>
               <div>
                 <SelectParent>
                   <div>step1. 欠席理由を選択してね！</div>
@@ -51,7 +51,8 @@ export const WelcomePage = () => {
                   <SStep2>
                     step2. 隣のテンプレート文を参考に、以下を入力してね！
                   </SStep2>
-                  <SElement>
+                  <SMobile>step2. 下の欄を入力してね！</SMobile>
+                  <div>
                     <SInput
                       name="teacher"
                       placeholder="教授の名前"
@@ -77,8 +78,8 @@ export const WelcomePage = () => {
                       value={inputValues.name || ""}
                       onChange={handleInputChange}
                     />
-                  </SElement>
-                  <SNextElement>
+                  </div>
+                  <div>
                     <SInput
                       name="date"
                       placeholder="日付（◯月◯日)"
@@ -97,8 +98,8 @@ export const WelcomePage = () => {
                       value={inputValues.lesson || ""}
                       onChange={handleInputChange}
                     />
-                  </SNextElement>
-                  <SNextElement>
+                  </div>
+                  <div>
                     <SInput
                       name="id"
                       placeholder="学籍番号"
@@ -117,7 +118,7 @@ export const WelcomePage = () => {
                       value={inputValues.number || ""}
                       onChange={handleInputChange}
                     />
-                  </SNextElement>
+                  </div>
                 </div>
               </div>
               <Link
@@ -136,7 +137,7 @@ export const WelcomePage = () => {
                   }&number=${inputValues.number || ""}`,
                 }}
               >
-                <SButton type="submit">作成</SButton>
+                <button type="submit">作成</button>
               </Link>
             </form>
           </LeftElement>
@@ -171,12 +172,23 @@ export const WelcomePage = () => {
 const SBDiv = styled.div`
   height: 100vh;
   background-color: #e6f9f8;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @media (max-width: 600px) {
+    overflow-y: scroll;
+  }
 `;
 
 const SDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const SInput = styled.input`
@@ -196,27 +208,26 @@ const LeftElement = styled.div`
 const RightElement = styled.div`
   width: 50%;
   margin-top: 4%;
-`;
-
-const SButton = styled.button`
-  margin-left: 50%;
+  @media (max-width: 600px) {
+    width: 95%;
+  }
 `;
 
 const SelectParent = styled.div`
-  margin-left: 35%;
+  @media (max-width: 600px) {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+  }
 `;
 
 const SStep2 = styled.div`
-  margin-left: 20%;
   margin-top: 5%;
-`;
-
-const SElement = styled.div`
-  padding-left: 5%;
-`;
-
-const SNextElement = styled.div`
-  padding-left: 15%;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const SCopyButton = styled.div`
@@ -227,4 +238,15 @@ const SCopyButton = styled.div`
 
 const CopyButton = styled.button`
   padding: 4px 8px;
+`;
+
+const SMobile = styled.div`
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;

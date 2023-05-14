@@ -9,9 +9,7 @@ export const HomePage = () => {
     <SBDiv>
       <Header />
       <SBox>
-        <TestWrapper>
-          <Test />
-        </TestWrapper>
+        <Test />
       </SBox>
     </SBDiv>
   );
@@ -20,17 +18,23 @@ export const HomePage = () => {
 const SBDiv = styled.div`
   height: 100vh;
   background-color: #e6f9f8;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @media (max-width: 600px) {
+    overflow-y: scroll;
+  }
 `;
 
 const SBox = styled.div`
-  margin-top: 2%;
   background-color: white;
   width: 40%;
-  margin-left: 25%; /* 左側のマージンを50% - (ボックス幅の半分) に設定 */
   padding: 4%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin: 0 auto;
+  margin-top: 25px;
 `;
-
-const TestWrapper = styled.div``;

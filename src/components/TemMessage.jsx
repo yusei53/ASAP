@@ -50,18 +50,9 @@ export const TemMessage = (props) => {
     }
   }, [reason]);
 
-  const [isCopied, setIsCopied] = useState(false);
-
-  const copyToClipboard = () => {
-    const copyText = document.querySelector("#copy-text");
-    navigator.clipboard.writeText(copyText.innerText);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 1000);
-  };
-
   return (
     <SBox>
-      <div id="copy-text" className="pt-25">
+      <Text>
         {teacher}先生 お忙しいところ失礼致します。 <br />
         {university} {grade}年 {name}です。
         <br />
@@ -81,7 +72,7 @@ export const TemMessage = (props) => {
         <br />
         <br />
         <br />
-        ーーーーーーーーーーーーーーーーーーーーーーーーーーーー <br />
+        ーーーーーーーーーーーーーーーーーー <br />
         <br />
         {name}
         <br />
@@ -93,8 +84,8 @@ export const TemMessage = (props) => {
         <br />
         電話番号 : {number}
         <br />
-        ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-      </div>
+        ーーーーーーーーーーーーーーーーーー
+      </Text>
     </SBox>
   );
 };
@@ -103,15 +94,8 @@ const SBox = styled.div`
   background-color: white;
   margin-right: 20px;
   padding: 18px;
-  padding-top: 7%;
 `;
 
-const SCopyButton = styled.div`
-  position: absolute;
-  right: 3%;
-`;
-
-const CopyButton = styled.button`
-  padding: 4px 8px;
-  margin: 5px -5px;
+const Text = styled.div`
+  padding-top: 20px;
 `;
