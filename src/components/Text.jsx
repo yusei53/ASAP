@@ -57,7 +57,6 @@ export const Text = (props) => {
         {university} {grade}年 {name}です。
         <br />
         <br />
-        <br />
         {reasonText}
         <br />
         <br />
@@ -96,6 +95,7 @@ const SBox = styled.div`
   padding: 16px;
   @media (max-width: 600px) {
     width: 88%;
+    margin-bottom: 5%;
   }
 `;
 

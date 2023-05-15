@@ -130,17 +130,17 @@ export const WelcomePage = () => {
               <Link
                 to={{
                   pathname: "/home",
-                  search: `&reason=${inputValues.reason || ""}&grade=${
-                    inputValues.grade || ""
-                  }&university=${inputValues.university || ""}&lesson=${
-                    inputValues.lesson || ""
-                  }&date=${inputValues.date || ""}&name=${
-                    inputValues.name || ""
-                  }&teacher=${inputValues.teacher || ""}&mail=${
-                    inputValues.mail || ""
-                  }&time=${inputValues.time || ""}&id=${
-                    inputValues.id || ""
-                  }&number=${inputValues.number || ""}`,
+                  // search: `&reason=${inputValues.reason || ""}&grade=${
+                  //   inputValues.grade || ""
+                  // }&university=${inputValues.university || ""}&lesson=${
+                  //   inputValues.lesson || ""
+                  // }&date=${inputValues.date || ""}&name=${
+                  //   inputValues.name || ""
+                  // }&teacher=${inputValues.teacher || ""}&mail=${
+                  //   inputValues.mail || ""
+                  // }&time=${inputValues.time || ""}&id=${
+                  //   inputValues.id || ""
+                  // }&number=${inputValues.number || ""}`,
                 }}
               >
                 <button type="submit" style={{ marginBottom: "10px" }}>
@@ -180,12 +180,14 @@ export const WelcomePage = () => {
 const SBDiv = styled.div`
   height: 100vh;
   background-color: #e6f9f8;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow-y: scroll;
+  @media (max-width: 600px) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+  }
 `;
 
 const SDiv = styled.div`
@@ -231,7 +233,7 @@ const LeftElement = styled.div`
 
 const RightElement = styled.div`
   width: 50%;
-  margin-top: 3%;
+  margin-top: 4%;
   margin-right: 2%;
   @media (max-width: 600px) {
     width: 95%;
