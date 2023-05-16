@@ -85,8 +85,6 @@ export const WelcomePage = () => {
                       value={inputValues.name || ""}
                       onChange={handleInputChange}
                     />
-                  </SElement>
-                  <SElement>
                     <SInput
                       name="date"
                       placeholder="日付（◯月◯日)"
@@ -130,17 +128,17 @@ export const WelcomePage = () => {
               <Link
                 to={{
                   pathname: "/home",
-                  // search: `&reason=${inputValues.reason || ""}&grade=${
-                  //   inputValues.grade || ""
-                  // }&university=${inputValues.university || ""}&lesson=${
-                  //   inputValues.lesson || ""
-                  // }&date=${inputValues.date || ""}&name=${
-                  //   inputValues.name || ""
-                  // }&teacher=${inputValues.teacher || ""}&mail=${
-                  //   inputValues.mail || ""
-                  // }&time=${inputValues.time || ""}&id=${
-                  //   inputValues.id || ""
-                  // }&number=${inputValues.number || ""}`,
+                  search: `&reason=${inputValues.reason || ""}&grade=${
+                    inputValues.grade || ""
+                  }&university=${inputValues.university || ""}&lesson=${
+                    inputValues.lesson || ""
+                  }&date=${inputValues.date || ""}&name=${
+                    inputValues.name || ""
+                  }&teacher=${inputValues.teacher || ""}&mail=${
+                    inputValues.mail || ""
+                  }&time=${inputValues.time || ""}&id=${
+                    inputValues.id || ""
+                  }&number=${inputValues.number || ""}`,
                 }}
               >
                 <button type="submit" style={{ marginBottom: "10px" }}>
@@ -178,29 +176,20 @@ export const WelcomePage = () => {
 };
 
 const SBDiv = styled.div`
-  height: 100vh;
+  min-height: 100%;
   background-color: #e6f9f8;
-  @media (max-width: 600px) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow-y: scroll;
-  }
 `;
 
 const SDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     flex-direction: column;
   }
 `;
 
 const SInput = styled.input`
-  margin-bottom: 8%;
   padding-right: 10px;
   height: 18px;
   @media (max-width: 600px) {
@@ -235,7 +224,7 @@ const RightElement = styled.div`
   width: 50%;
   margin-top: 4%;
   margin-right: 2%;
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     width: 95%;
     margin-right: 0;
   }
@@ -243,7 +232,6 @@ const RightElement = styled.div`
 
 const SelectParent = styled.div`
   @media (max-width: 600px) {
-    margin-left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -256,7 +244,7 @@ const SStep2 = styled.div`
   margin-bottom: 2%;
   font-weight: 500;
   font-size: 17px;
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     display: none;
   }
 `;
@@ -265,7 +253,7 @@ const SCopyButton = styled.div`
   position: absolute;
   right: 4%;
   margin-top: 15px;
-  @media (max-width: 600px) {
+  @media (max-width: 7500px) {
     right: 8%;
   }
 `;
@@ -276,7 +264,7 @@ const CopyButton = styled.button`
 
 const SMobile = styled.div`
   display: none;
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     display: block;
     white-space: nowrap;
     display: flex;
@@ -288,7 +276,10 @@ const SMobile = styled.div`
 `;
 
 const SElement = styled.div`
-  width: 58%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 8%;
 `;
 
 const SelectParent2 = styled.div`
