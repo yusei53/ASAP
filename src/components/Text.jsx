@@ -79,9 +79,10 @@ export const Text = (props) => {
         <br />
         学籍番号 : {id}
         <br />
-        メール : {mail}
+        メールアドレス : {mail}
         <br />
         電話番号 : {number}
+        <br />
         <br />
         ーーーーーーーーーーーーーーーーーー
       </SText>
