@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Header } from "./Header";
 import { Text } from "./Text";
@@ -23,15 +22,18 @@ export const HomePage = () => {
   };
 
   const handleUniversityButtonClick = () => {
+    const mailto = encodeURIComponent(
+      `${inputValues.mailto || "example@gmail.com"}`
+    );
+
     const subject = encodeURIComponent(
-      `${inputValues.date || "{ 日付（○月○日) }"}
-      ${inputValues.time || "{ 何限 }"}${
-        inputValues.lesson || "{ 講義名 }"
-      }欠席のご連絡`
+      `${inputValues.date || "{ 日付（○月○日) }"}${
+        inputValues.time || "{ 何限 }"
+      }${inputValues.lesson || "{ 講義名 }"}欠席のご連絡`
     );
     const body = encodeURIComponent(`コピーしたものを貼り付けてね！`);
 
-    window.location.href = `mailto:example@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -45,7 +47,7 @@ export const HomePage = () => {
                 <SelectParent>
                   <div
                     style={{
-                      marginTop: "7%",
+                      marginTop: "4%",
                       fontWeight: "500",
                       fontSize: "17px",
                     }}
@@ -67,11 +69,27 @@ export const HomePage = () => {
                     <option value="delay">交通機関の遅延</option>
                   </SSelect>
                 </SelectParent>
+                <div>
+                  <div
+                    style={{
+                      fontWeight: "500",
+                      fontSize: "17px",
+                    }}
+                  >
+                    step2. 送信先のメールアドレスを入力してね！
+                  </div>
+                  <SInput
+                    name="mailto"
+                    placeholder="送信先のメールアドレス"
+                    value={inputValues.mailto || ""}
+                    onChange={handleInputChange}
+                  />
+                </div>
                 <SelectParent2>
-                  <SStep2>
-                    step2. 隣のテンプレート文を参考に、以下を入力してね！
-                  </SStep2>
-                  <SMobile>step2. 下の欄を入力してね！</SMobile>
+                  <Sstep3>
+                    step3. 隣のテンプレート文を参考に、以下を入力してね！
+                  </Sstep3>
+                  <SMobile>step3. 下の欄を入力してね！</SMobile>
                   <SElement>
                     <SInput
                       name="teacher"
@@ -137,12 +155,9 @@ export const HomePage = () => {
                   </SElement>
                 </SelectParent2>
               </div>
-              <button
-                onClick={handleUniversityButtonClick}
-                style={{ marginBottom: "10px" }}
-              >
+              <BlueButton onClick={handleUniversityButtonClick}>
                 メールを開く
-              </button>
+              </BlueButton>
             </div>
           </LeftElement>
           <RightElement>
@@ -184,35 +199,31 @@ const SDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   @media (max-width: 750px) {
     flex-direction: column;
   }
 `;
 
 const SInput = styled.input`
-  padding-right: 10px;
-  height: 18px;
-  @media (max-width: 600px) {
-    margin-bottom: 5%;
-    border-radius: 9999px;
-    border: 1px solid #767676;
-  }
-  @media (max-width: 540px) {
-    padding-right: 50px;
-  }
+  margin-top: 2%;
+  margin-bottom: 5%;
+  height: 21px;
+  border-radius: 9999px;
+  border: 1px solid black;
+  width: 190px;
 `;
 
 const SSelect = styled.select`
   margin-top: 2%;
-  margin-bottom: 8%;
+  margin-bottom: 5%;
   height: 25px;
   border-radius: 9999px;
+  color: #757575;
+  border: 1px solid black;
 `;
 
 const LeftElement = styled.div`
   width: 50%;
-  margin-top: 3%;
   @media (max-width: 600px) {
     width: 100%;
     display: flex;
@@ -240,8 +251,7 @@ const SelectParent = styled.div`
   }
 `;
 
-const SStep2 = styled.div`
-  margin-top: 3%;
+const Sstep3 = styled.div`
   margin-bottom: 2%;
   font-weight: 500;
   font-size: 17px;
@@ -279,8 +289,8 @@ const SMobile = styled.div`
 const SElement = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-bottom: 8%;
+  margin-bottom: 6%;
+  grid-column-gap: 10px; /* 適宜間隔のサイズを調整 */
 `;
 
 const SelectParent2 = styled.div`
@@ -293,4 +303,14 @@ const SCopyText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const BlueButton = styled.button`
+  background-color: #1c97a0;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  cursor: pointer;
 `;
