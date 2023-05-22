@@ -51,8 +51,6 @@ export const WelcomePage = () => {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          "Bearer [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]",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(data), // 本体のデータ型は "Content-Type" ヘッダーと一致させる必要があります
