@@ -22,13 +22,51 @@ export const WelcomePage = () => {
     setTimeout(() => setIsCopied(false), 1000);
   };
 
+  async function SendMail(
+    url = "https://api.sendgrid.com/v3/mail/send",
+    data = {
+      personalizations: [
+        {
+          to: [
+            {
+              email: "nisikoriyusei@icloud.com",
+            },
+          ],
+          subject: "aaaaaa",
+        },
+      ],
+      from: {
+        email: "from_address@example.com",
+      },
+      content: [
+        {
+          type: "text/plain",
+          value: "テキストメールです！",
+        },
+      ],
+    }
+  ) {
+    // 既定のオプションには * が付いています
+    const response = await fetch(url, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer [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]",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(data), // 本体のデータ型は "Content-Type" ヘッダーと一致させる必要があります
+    });
+    return response.json(); // JSON のレスポンスをネイティブの JavaScript オブジェクトに解釈
+  }
+
   return (
     <>
       <SBDiv>
         <Header />
         <SDiv>
           <LeftElement>
-            <form style={{ textAlign: "center" }}>
+            <div style={{ textAlign: "center" }}>
               <div>
                 <SelectParent>
                   <div
@@ -128,24 +166,13 @@ export const WelcomePage = () => {
               <Link
                 to={{
                   pathname: "/home",
-                  search: `&reason=${inputValues.reason || ""}&grade=${
-                    inputValues.grade || ""
-                  }&university=${inputValues.university || ""}&lesson=${
-                    inputValues.lesson || ""
-                  }&date=${inputValues.date || ""}&name=${
-                    inputValues.name || ""
-                  }&teacher=${inputValues.teacher || ""}&mail=${
-                    inputValues.mail || ""
-                  }&time=${inputValues.time || ""}&id=${
-                    inputValues.id || ""
-                  }&number=${inputValues.number || ""}`,
                 }}
               >
-                <button type="submit" style={{ marginBottom: "10px" }}>
+                <button onClick={SendMail} style={{ marginBottom: "10px" }}>
                   作成
                 </button>
               </Link>
-            </form>
+            </div>
           </LeftElement>
           <RightElement>
             <SCopyButton>
@@ -253,7 +280,7 @@ const SCopyButton = styled.div`
   position: absolute;
   right: 4%;
   margin-top: 15px;
-  @media (max-width: 7500px) {
+  @media (max-width: 750px) {
     right: 8%;
   }
 `;
