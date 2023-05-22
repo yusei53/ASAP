@@ -27,7 +27,6 @@ export const WelcomePage = () => {
 
 const SBDiv = styled.div`
   background-color: #e6f9f8;
-
   background-size: cover;
   background-position: center;
   height: 100vh;
