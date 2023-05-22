@@ -8,13 +8,16 @@ export const WelcomePage = () => {
     <SBDiv>
       <Header />
       <Container>
-        <Text>何を休むのか選択してね！</Text>
+        <Text>どこにメールを送るのか選択してね！</Text>
         <ButtonContainer>
           <StyledLink to="/university">
-            <Button>大学</Button>
+            <Button>大学(例:講義欠席)</Button>
           </StyledLink>
           <StyledLink to="/part-time">
-            <Button>バイト</Button>
+            <Button>バイト(例:バイト欠席、遅刻)</Button>
+          </StyledLink>
+          <StyledLink to="/part-time">
+            <Button>企業、会社(例:内定、インターン内定辞退)</Button>
           </StyledLink>
         </ButtonContainer>
       </Container>
@@ -53,7 +56,7 @@ const Button = styled.button`
   color: #fff;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 16px;
   font-size: 24px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -69,7 +72,6 @@ const Button = styled.button`
 const Text = styled.div`
   font-size: 36px;
   font-weight: 600;
-
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
   margin-bottom: 20px;
 `;
