@@ -22,41 +22,17 @@ export const HomePage = () => {
     setTimeout(() => setIsCopied(false), 1000);
   };
 
-  async function SendMail(
-    url = "https://api.sendgrid.com/v3/mail/send",
-    data = {
-      personalizations: [
-        {
-          to: [
-            {
-              email: "nisikoriyusei@icloud.com",
-            },
-          ],
-          subject: "aaaaaa",
-        },
-      ],
-      from: {
-        email: "from_address@example.com",
-      },
-      content: [
-        {
-          type: "text/plain",
-          value: "テキストメールです！",
-        },
-      ],
-    }
-  ) {
-    // 既定のオプションには * が付いています
-    const response = await fetch(url, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify(data), // 本体のデータ型は "Content-Type" ヘッダーと一致させる必要があります
-    });
-    return response.json(); // JSON のレスポンスをネイティブの JavaScript オブジェクトに解釈
-  }
+  const handleUniversityButtonClick = () => {
+    const subject = encodeURIComponent(
+      `${inputValues.date || "{ 日付（○月○日) }"}
+      ${inputValues.time || "{ 何限 }"}${
+        inputValues.lesson || "{ 講義名 }"
+      }欠席のご連絡`
+    );
+    const body = encodeURIComponent(`コピーしたものを貼り付けてね！`);
+
+    window.location.href = `mailto:example@gmail.com?subject=${subject}&body=${body}`;
+  };
 
   return (
     <>
@@ -161,15 +137,12 @@ export const HomePage = () => {
                   </SElement>
                 </SelectParent2>
               </div>
-              <Link
-                to={{
-                  pathname: "/home",
-                }}
+              <button
+                onClick={handleUniversityButtonClick}
+                style={{ marginBottom: "10px" }}
               >
-                <button onClick={SendMail} style={{ marginBottom: "10px" }}>
-                  作成
-                </button>
-              </Link>
+                メールを開く
+              </button>
             </div>
           </LeftElement>
           <RightElement>
