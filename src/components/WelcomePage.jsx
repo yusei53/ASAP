@@ -5,21 +5,28 @@ import { Header } from "./Header";
 
 export const WelcomePage = () => {
   return (
-    <>
-      <SBDiv>
-        <Header />
-        <Container>
-          <Link to="/home">
-            <Button>休む</Button>
-          </Link>
-        </Container>
-      </SBDiv>
-    </>
+    <SBDiv>
+      <Header />
+      <Container>
+        <Text>何を休むのか選択してね！</Text>
+        <ButtonContainer>
+          <StyledLink to="/university">
+            <Button>大学</Button>
+          </StyledLink>
+          <StyledLink to="/part-time">
+            <Button>バイト</Button>
+          </StyledLink>
+        </ButtonContainer>
+      </Container>
+    </SBDiv>
   );
 };
 
 const SBDiv = styled.div`
   background-color: #e6f9f8;
+
+  background-size: cover;
+  background-position: center;
   height: 100vh;
   align-items: center;
   justify-content: center;
@@ -29,12 +36,40 @@ const Container = styled.div`
   text-align: center;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  position: relative;
+`;
+
 const Button = styled.button`
   background-color: #fca311;
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  font-size: 18px;
+  font-size: 24px;
   cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: #ff7c03;
+  }
+`;
+
+const Text = styled.div`
+  font-size: 36px;
+  font-weight: 600;
+
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
 `;
