@@ -201,14 +201,17 @@ export const WelcomePage = () => {
 };
 
 const SBDiv = styled.div`
-  min-height: 100%;
   background-color: #e6f9f8;
+  min-height: 100vh; /* ページの最小の高さを100vhに設定 */
+  flex-direction: column; /* 子要素を縦方向に配置 */
+  align-items: center; /* 子要素を中央に配置 */
 `;
 
 const SDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   @media (max-width: 750px) {
     flex-direction: column;
   }
