@@ -73,4 +73,5 @@ const Text = styled.div`
   font-weight: 600;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
   margin-bottom: 20px;
+  margin-top: 5%;
 `;
