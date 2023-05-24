@@ -9,7 +9,6 @@ export const HomePage = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputValues((prev) => ({ ...prev, [name]: value }));
-    console.log(inputValues);
   };
 
   const [isCopied, setIsCopied] = useState(false);
@@ -199,7 +198,7 @@ const SDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: 750px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
@@ -210,7 +209,7 @@ const SInput = styled.input`
   height: 21px;
   border-radius: 9999px;
   border: 1px solid black;
-  width: 190px;
+  width: 100%;
 `;
 
 const SSelect = styled.select`
@@ -218,7 +217,6 @@ const SSelect = styled.select`
   margin-bottom: 5%;
   height: 25px;
   border-radius: 9999px;
-  color: #757575;
   border: 1px solid black;
 `;
 
@@ -236,7 +234,7 @@ const RightElement = styled.div`
   width: 50%;
   margin-top: 4%;
   margin-right: 2%;
-  @media (max-width: 750px) {
+  @media (max-width: 768px) {
     width: 95%;
     margin-right: 0;
   }
@@ -255,7 +253,7 @@ const Sstep3 = styled.div`
   margin-bottom: 2%;
   font-weight: 500;
   font-size: 17px;
-  @media (max-width: 750px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;
@@ -264,7 +262,7 @@ const SCopyButton = styled.div`
   position: absolute;
   right: 4%;
   margin-top: 15px;
-  @media (max-width: 750px) {
+  @media (max-width: 768px) {
     right: 8%;
   }
 `;
@@ -275,7 +273,7 @@ const CopyButton = styled.button`
 
 const SMobile = styled.div`
   display: none;
-  @media (max-width: 750px) {
+  @media (max-width: 768px) {
     display: block;
     white-space: nowrap;
     display: flex;
@@ -291,6 +289,9 @@ const SElement = styled.div`
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 6%;
   grid-column-gap: 10px; /* 適宜間隔のサイズを調整 */
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const SelectParent2 = styled.div`
