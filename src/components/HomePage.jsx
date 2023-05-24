@@ -77,7 +77,7 @@ export const HomePage = () => {
                   >
                     step2. 送信先のメールアドレスを入力してね！
                   </div>
-                  <SInput
+                  <SSInput
                     name="mailto"
                     placeholder="送信先のメールアドレス"
                     value={inputValues.mailto || ""}
@@ -210,6 +210,23 @@ const SInput = styled.input`
   border-radius: 9999px;
   border: 1px solid black;
   width: 100%;
+  @media (max-width: 768px) {
+    width: 80%;
+    margin-bottom: 3%;
+  }
+`;
+
+const SSInput = styled.input`
+  margin-top: 2%;
+  margin-bottom: 5%;
+  height: 21px;
+  border-radius: 9999px;
+  border: 1px solid black;
+  width: 50%;
+  @media (max-width: 768px) {
+    width: 80%;
+    margin-bottom: 2%;
+  }
 `;
 
 const SSelect = styled.select`
@@ -218,11 +235,14 @@ const SSelect = styled.select`
   height: 25px;
   border-radius: 9999px;
   border: 1px solid black;
+  @media (max-width: 768px) {
+    margin-bottom: 2%;
+  }
 `;
 
 const LeftElement = styled.div`
   width: 50%;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -241,7 +261,7 @@ const RightElement = styled.div`
 `;
 
 const SelectParent = styled.div`
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -289,8 +309,10 @@ const SElement = styled.div`
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 6%;
   grid-column-gap: 10px; /* 適宜間隔のサイズを調整 */
+  width: 70%;
   @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr);
+    display: block;
+    width: 100%;
   }
 `;
 
@@ -298,6 +320,9 @@ const SelectParent2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 const SCopyText = styled.div`
