@@ -16,7 +16,7 @@ export const WelcomePage = () => {
           <StyledLink to="/part-time">
             <Button>バイト(例:バイト欠席、遅刻)</Button>
           </StyledLink>
-          <StyledLink to="/part-time">
+          <StyledLink to="/company">
             <Button>企業、会社(例:内定、インターン内定辞退)</Button>
           </StyledLink>
         </ButtonContainer>
