@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "./Header";
-import { UniText } from "./UniText";
+import { CompanyText } from "./CompanyText";
 
 export const CompanyPage = () => {
   const [inputValues, setInputValues] = useState({});
@@ -163,14 +163,11 @@ export const CompanyPage = () => {
               </CopyButton>
             </SCopyButton>
             <SCopyText id="copy-text">
-              <UniText
-                teacher={inputValues.teacher || "{ 教授の名前 }"}
+              <CompanyText
+                company={inputValues.company || "{ 会社名（株式会社〇〇） }"}
                 university={inputValues.university || "{ 大学学部学科 }"}
                 grade={inputValues.grade || "{ 学年 }"}
                 name={inputValues.name || "{ 氏名 }"}
-                date={inputValues.date || "{ 日付（○月○日) }"}
-                time={inputValues.time || "{ 何限目 }"}
-                lesson={inputValues.lesson || "{ 講義名 }"}
                 mail={inputValues.mail || "{ 自身のメールアドレス }"}
                 id={inputValues.id || "{ 学籍番号 }"}
                 number={inputValues.number || "{ 電話番号 }"}
