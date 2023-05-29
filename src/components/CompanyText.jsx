@@ -1,20 +1,9 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-export const UniText = (props) => {
-  const {
-    teacher,
-    university,
-    grade,
-    name,
-    date,
-    time,
-    lesson,
-    id,
-    mail,
-    number,
-    reason,
-  } = props;
+export const CompanyText = (props) => {
+  const { company, university, grade, name, yourname, mail, number, reason } =
+    props;
 
   const [reasonText, setReasonText] = useState("");
 
@@ -53,20 +42,25 @@ export const UniText = (props) => {
   return (
     <SBox>
       <SText>
-        {teacher}先生 お忙しいところ失礼致します。 <br />
-        {university} {grade}年 {name}です。
+        {company} 人事部 採用ご担当 {yourname}様<br />
+        お世話になっております。{name}です。
+        <br />
+        この度は、内定のご連絡をいただき、誠にありがとうございます。
         <br />
         <br />
         {reasonText}
         <br />
         <br />
-        申し訳ありませんが、{date} {time}限の{lesson}
-        の講義は欠席させてください。
+        選考では、書類に目を通していただいたり面接を実施していただいたりと、
+        <br />
+        貴重なお時間をいただいたにもかかわらず、ご期待に添えず大変心苦しく思っております。
         <br />
         <br />
-        また、本日の課題がございましたら教えていただけると幸いです。
+        本来であれば、直接お伺いしお詫びをするべきところではございますが、
+        このようにメールでのご連絡となりましたことを、
+        何卒ご容赦いただきたくお願い申し上げます。
         <br />
-        お手数おかけしますが、どうぞ宜しくお願い致します。
+        末筆ながら、貴社の益々のご発展をお祈り申し上げます。
         <br />
         <br />
         <br />
@@ -76,8 +70,6 @@ export const UniText = (props) => {
         {name}
         <br />
         {university} {grade}年
-        <br />
-        学籍番号 : {id}
         <br />
         メールアドレス : {mail}
         <br />
