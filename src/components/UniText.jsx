@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-export const Text = (props) => {
+export const UniText = (props) => {
   const {
     teacher,
     university,
