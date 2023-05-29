@@ -51,7 +51,7 @@ export const PartTimePage = () => {
                       fontSize: "17px",
                     }}
                   >
-                    step1. 欠席理由を選択してね！
+                    step1. バイトを休む理由を選択してね！
                   </div>
                   <SSelect
                     name="reason"
@@ -61,10 +61,9 @@ export const PartTimePage = () => {
                     <option value="selectReeason">
                       欠席理由を選択してください
                     </option>
-                    <option value="recruitment">就活</option>
+                    <option value="problem">シフト勘違い</option>
                     <option value="fever">体調不良</option>
                     <option value="funeral">身内の不幸</option>
-                    <option value="marry">結婚式</option>
                     <option value="delay">交通機関の遅延</option>
                   </SSelect>
                 </SelectParent>

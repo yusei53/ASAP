@@ -51,7 +51,7 @@ export const CompanyPage = () => {
                       fontSize: "17px",
                     }}
                   >
-                    step1. 欠席理由を選択してね！
+                    step1. メールを送る理由を選択してね！
                   </div>
                   <SSelect
                     name="reason"
@@ -59,13 +59,10 @@ export const CompanyPage = () => {
                     onChange={handleInputChange}
                   >
                     <option value="selectReeason">
-                      欠席理由を選択してください
+                      メールを送る理由を選択してください
                     </option>
-                    <option value="recruitment">就活</option>
-                    <option value="fever">体調不良</option>
-                    <option value="funeral">身内の不幸</option>
-                    <option value="marry">結婚式</option>
-                    <option value="delay">交通機関の遅延</option>
+                    <option value="recruitment">内定辞退</option>
+                    <option value="fever">インターン内定辞退</option>
                   </SSelect>
                 </SelectParent>
                 <div>
