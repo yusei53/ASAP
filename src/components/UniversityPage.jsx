@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Header } from "./Header";
 import { Text } from "./Text";
 
-export const HomePage = () => {
+export const UniversityPage = () => {
   const [inputValues, setInputValues] = useState({});
 
   const handleInputChange = (e) => {

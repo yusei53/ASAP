@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage } from "./components/HomePage";
+import { CompanyPage } from "./components/CompanyPage";
+import { PartTimePage } from "./components/PartTimePage";
+import { UniversityPage } from "./components/UniversityPage";
 import { WelcomePage } from "./components/WelcomePage";
 
 function App() {
@@ -7,8 +9,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<WelcomePage></WelcomePage>} />
-        <Route path="/university" element={<HomePage></HomePage>} />
-        <Route path="/part-time" element={""} />
+        <Route path="/university" element={<UniversityPage></UniversityPage>} />
+        <Route path="/part-time" element={<PartTimePage></PartTimePage>} />
+        <Route path="/company" element={<CompanyPage></CompanyPage>} />
       </Routes>
     </BrowserRouter>
   );
