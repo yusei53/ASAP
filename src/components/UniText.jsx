@@ -20,14 +20,14 @@ export const UniText = (props) => {
 
   useEffect(() => {
     switch (reason) {
-      case "fever":
-        setReasonText(
-          "本日なのですが、体調を崩してしまい、講義を受けられそうにありません。"
-        );
-        break;
       case "recruitment":
         setReasonText(
           "本日なのですが、就職活動のため、講義を受けれそうにありません。"
+        );
+        break;
+      case "fever":
+        setReasonText(
+          "本日なのですが、体調を崩してしまい、講義を受けられそうにありません。"
         );
         break;
       case "funeral":

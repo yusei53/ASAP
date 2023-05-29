@@ -16,6 +16,7 @@ const SHeader = styled.div`
 const SString = styled.div`
   font-weight: 600;
   text-align: center;
+  line-height: 2;
   font-size: 50px;
-  padding: 1.5% 0;
+  padding: 1% 0;
 `;
