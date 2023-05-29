@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Header = () => {
   return (
     <SHeader>
-      <SString>YASUMU</SString>
+      <SString>連絡マスター</SString>
     </SHeader>
   );
 };
