@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "./Header";
-import { Text } from "./Text";
+import { UniText } from "./UniText";
 
 export const UniversityPage = () => {
   const [inputValues, setInputValues] = useState({});
@@ -166,7 +166,7 @@ export const UniversityPage = () => {
               </CopyButton>
             </SCopyButton>
             <SCopyText id="copy-text">
-              <Text
+              <UniText
                 teacher={inputValues.teacher || "{ 教授の名前 }"}
                 university={inputValues.university || "{ 大学学部学科 }"}
                 grade={inputValues.grade || "{ 学年 }"}

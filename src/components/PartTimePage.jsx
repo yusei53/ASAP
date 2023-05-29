@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "./Header";
-import { Text } from "./Text";
+import { PartTimeText } from "./PartTimeText";
 
 export const PartTimePage = () => {
   const [inputValues, setInputValues] = useState({});
@@ -46,12 +46,12 @@ export const PartTimePage = () => {
                 <SelectParent>
                   <div
                     style={{
-                      marginTop: "4%",
+                      marginTop: "10%",
                       fontWeight: "500",
                       fontSize: "17px",
                     }}
                   >
-                    step1. 欠席理由を選択してね！
+                    step1. バイトを休む理由を選択してね！
                   </div>
                   <SSelect
                     name="reason"
@@ -61,11 +61,10 @@ export const PartTimePage = () => {
                     <option value="selectReeason">
                       欠席理由を選択してください
                     </option>
-                    <option value="recruitment">就活</option>
+                    <option value="problem">シフト勘違い</option>
                     <option value="fever">体調不良</option>
                     <option value="funeral">身内の不幸</option>
-                    <option value="marry">結婚式</option>
-                    <option value="delay">交通機関の遅延</option>
+                    <option value="pets">ペット関連</option>
                   </SSelect>
                 </SelectParent>
                 <div>
@@ -75,7 +74,8 @@ export const PartTimePage = () => {
                       fontSize: "17px",
                     }}
                   >
-                    step2. 送信先のメールアドレスを入力してね！
+                    step2.
+                    メールで送る場合のみ送信先のメールアドレスを入力してね！
                   </div>
                   <SSInput
                     name="mailto"
@@ -91,64 +91,15 @@ export const PartTimePage = () => {
                   <SMobile>step3. 下の欄を入力してね！</SMobile>
                   <SElement>
                     <SInput
-                      name="teacher"
-                      placeholder="教授の名前"
-                      value={inputValues.teacher || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
-                      name="university"
-                      placeholder="大学学部学科"
-                      value={inputValues.university || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
-                      name="grade"
-                      placeholder="学年（数字のみ）"
-                      value={inputValues.grade || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
                       name="name"
                       placeholder="氏名"
                       value={inputValues.name || ""}
                       onChange={handleInputChange}
                     />
                     <SInput
-                      name="date"
-                      placeholder="日付（◯月◯日)"
-                      value={inputValues.date || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
                       name="time"
-                      placeholder="何限目（数字のみ）"
+                      placeholder="シフトの時間（数字のみ）"
                       value={inputValues.time || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
-                      name="lesson"
-                      placeholder="講義名"
-                      value={inputValues.lesson || ""}
-                      onChange={handleInputChange}
-                    />
-
-                    <SInput
-                      name="id"
-                      placeholder="学籍番号"
-                      value={inputValues.id || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
-                      name="mail"
-                      placeholder="メールアドレス"
-                      value={inputValues.mail || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
-                      name="number"
-                      placeholder="電話番号"
-                      value={inputValues.number || ""}
                       onChange={handleInputChange}
                     />
                   </SElement>
@@ -166,17 +117,9 @@ export const PartTimePage = () => {
               </CopyButton>
             </SCopyButton>
             <SCopyText id="copy-text">
-              <Text
-                teacher={inputValues.teacher || "{ 教授の名前 }"}
-                university={inputValues.university || "{ 大学学部学科 }"}
-                grade={inputValues.grade || "{ 学年 }"}
+              <PartTimeText
                 name={inputValues.name || "{ 氏名 }"}
-                date={inputValues.date || "{ 日付（○月○日) }"}
-                time={inputValues.time || "{ 何限目 }"}
-                lesson={inputValues.lesson || "{ 講義名 }"}
-                mail={inputValues.mail || "{ 自身のメールアドレス }"}
-                id={inputValues.id || "{ 学籍番号 }"}
-                number={inputValues.number || "{ 電話番号 }"}
+                time={inputValues.date || "{ 時間 }"}
                 reason={inputValues.reason}
               />
             </SCopyText>
@@ -306,7 +249,7 @@ const SMobile = styled.div`
 
 const SElement = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   margin-bottom: 6%;
   grid-column-gap: 10px; /* 適宜間隔のサイズを調整 */
   width: 70%;

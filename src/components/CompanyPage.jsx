@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "./Header";
-import { Text } from "./Text";
+import { UniText } from "./UniText";
 
 export const CompanyPage = () => {
   const [inputValues, setInputValues] = useState({});
@@ -51,7 +51,7 @@ export const CompanyPage = () => {
                       fontSize: "17px",
                     }}
                   >
-                    step1. 欠席理由を選択してね！
+                    step1. メールを送る理由を選択してね！
                   </div>
                   <SSelect
                     name="reason"
@@ -59,13 +59,10 @@ export const CompanyPage = () => {
                     onChange={handleInputChange}
                   >
                     <option value="selectReeason">
-                      欠席理由を選択してください
+                      メールを送る理由を選択してください
                     </option>
-                    <option value="recruitment">就活</option>
-                    <option value="fever">体調不良</option>
-                    <option value="funeral">身内の不幸</option>
-                    <option value="marry">結婚式</option>
-                    <option value="delay">交通機関の遅延</option>
+                    <option value="recruitment">内定辞退</option>
+                    <option value="fever">インターン内定辞退</option>
                   </SSelect>
                 </SelectParent>
                 <div>
@@ -166,7 +163,7 @@ export const CompanyPage = () => {
               </CopyButton>
             </SCopyButton>
             <SCopyText id="copy-text">
-              <Text
+              <UniText
                 teacher={inputValues.teacher || "{ 教授の名前 }"}
                 university={inputValues.university || "{ 大学学部学科 }"}
                 grade={inputValues.grade || "{ 学年 }"}
