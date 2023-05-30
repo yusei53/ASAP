@@ -61,8 +61,8 @@ export const CompanyPage = () => {
                     <option value="selectReeason">
                       メールを送る理由を選択してください
                     </option>
-                    <option value="recruitment">内定辞退</option>
-                    <option value="fever">インターン内定辞退</option>
+                    <option value="CancelJob">内定辞退</option>
+                    <option value="CancelIntern">インターン内定辞退</option>
                   </SSelect>
                 </SelectParent>
                 <div>
