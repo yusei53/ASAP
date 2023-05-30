@@ -71,7 +71,7 @@ export const UniText = (props) => {
         <br />
         <br />
         <br />
-        ーーーーーーーーーーーーーーーーーー <br />
+        ーーーーーーーーーーーーーーーーーーーーー <br />
         <br />
         {name}
         <br />
@@ -84,7 +84,7 @@ export const UniText = (props) => {
         電話番号 : {number}
         <br />
         <br />
-        ーーーーーーーーーーーーーーーーーー
+        ーーーーーーーーーーーーーーーーーーーーー
       </SText>
     </SBox>
   );

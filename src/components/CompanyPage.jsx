@@ -25,11 +25,15 @@ export const CompanyPage = () => {
       `${inputValues.mailto || "example@gmail.com"}`
     );
 
-    const subject = encodeURIComponent(
-      `${inputValues.date || "{ 日付（○月○日) }"}${
-        inputValues.time || "{ 何限 }"
-      }${inputValues.lesson || "{ 講義名 }"}欠席のご連絡`
-    );
+    const getSubject = () => {
+      if (inputValues.reason === "CancelJob") {
+        return encodeURIComponent("内定辞退のご連絡");
+      } else if (inputValues.reason === "CancelIntern") {
+        return encodeURIComponent("インターン内定辞退のご連絡");
+      }
+    };
+
+    const subject = getSubject();
     const body = encodeURIComponent(`コピーしたものを貼り付けてね！`);
 
     window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
