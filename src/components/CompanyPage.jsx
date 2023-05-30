@@ -88,9 +88,15 @@ export const CompanyPage = () => {
                   <SMobile>step3. 下の欄を入力してね！</SMobile>
                   <SElement>
                     <SInput
-                      name="teacher"
-                      placeholder="教授の名前"
-                      value={inputValues.teacher || ""}
+                      name="company"
+                      placeholder="会社名（株式会社〇〇）"
+                      value={inputValues.company || ""}
+                      onChange={handleInputChange}
+                    />
+                    <SInput
+                      name="yourname"
+                      placeholder="担当者"
+                      value={inputValues.yourname || ""}
                       onChange={handleInputChange}
                     />
                     <SInput
@@ -109,31 +115,6 @@ export const CompanyPage = () => {
                       name="name"
                       placeholder="氏名"
                       value={inputValues.name || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
-                      name="date"
-                      placeholder="日付（◯月◯日)"
-                      value={inputValues.date || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
-                      name="time"
-                      placeholder="何限目（数字のみ）"
-                      value={inputValues.time || ""}
-                      onChange={handleInputChange}
-                    />
-                    <SInput
-                      name="lesson"
-                      placeholder="講義名"
-                      value={inputValues.lesson || ""}
-                      onChange={handleInputChange}
-                    />
-
-                    <SInput
-                      name="id"
-                      placeholder="学籍番号"
-                      value={inputValues.id || ""}
                       onChange={handleInputChange}
                     />
                     <SInput
@@ -165,6 +146,7 @@ export const CompanyPage = () => {
             <SCopyText id="copy-text">
               <CompanyText
                 company={inputValues.company || "{ 会社名（株式会社〇〇） }"}
+                yourname={inputValues.yourname || "{ 担当者お名前 }"}
                 university={inputValues.university || "{ 大学学部学科 }"}
                 grade={inputValues.grade || "{ 学年 }"}
                 name={inputValues.name || "{ 氏名 }"}

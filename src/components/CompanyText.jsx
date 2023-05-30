@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 export const CompanyText = (props) => {
-  const { company, university, grade, name, yourname, mail, number, reason } =
+  const { company, yourname, university, grade, name, mail, number, reason } =
     props;
 
   const [reasonText, setReasonText] = useState("");
@@ -28,7 +28,9 @@ export const CompanyText = (props) => {
     <SBox>
       <SText>
         {company} 人事部 採用ご担当 {yourname}様<br />
-        お世話になっております。{name}です。
+        <br />
+        お世話になっております。{university}
+        {grade}年{name}です。
         <br />
         この度は、内定のご連絡をいただき、誠にありがとうございます。
         <br />
@@ -50,7 +52,7 @@ export const CompanyText = (props) => {
         <br />
         <br />
         <br />
-        ーーーーーーーーーーーーーーーーーー <br />
+        ーーーーーーーーーーーーーーーーーーーーー <br />
         <br />
         {name}
         <br />
@@ -61,7 +63,7 @@ export const CompanyText = (props) => {
         電話番号 : {number}
         <br />
         <br />
-        ーーーーーーーーーーーーーーーーーー
+        ーーーーーーーーーーーーーーーーーーーーー
       </SText>
     </SBox>
   );
