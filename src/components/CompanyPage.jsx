@@ -149,7 +149,7 @@ export const CompanyPage = () => {
             </SCopyButton>
             <SCopyText id="copy-text">
               <CompanyText
-                company={inputValues.company || "{ 会社名（株式会社〇〇） }"}
+                company={inputValues.company || "{ 会社名（株式会社〇〇) }"}
                 yourname={inputValues.yourname || "{ 担当者お名前 }"}
                 university={inputValues.university || "{ 大学学部学科 }"}
                 grade={inputValues.grade || "{ 学年 }"}
