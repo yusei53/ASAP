@@ -5,18 +5,18 @@ const initialState = {
   inputvalue: {},
 };
 
-const emailSlice = createSlice({
+const EmailSlice = createSlice({
   name: "email",
   initialState,
   reducers: {
     setEmailTemplate: (state, action) => {
       const { name, value } = action.payload;
       state.inputvalue = { ...state.inputvalue, [name]: value };
-      state.emailTemplate = `{teacher}先生 お忙しいところ失礼致します。
-        {university} {grade}年 {name}です。
-        {reasonText}
+      state.emailTemplate = `${state.inputvalue.teacher} 先生 お忙しいところ失礼致します。
+        ${state.inputvalue.university} ${state.inputvalue.grade}年 ${state.inputvalue.name}です。
+        ${state.inputvalue.reasontext}
    
-        申し訳ありませんが、{date} {time}限の{lesson}
+        申し訳ありませんが、${state.inputvalue.date} ${state.inputvalue.time}限の${state.inputvalue.lesson}
         の講義は欠席させてください。
 
         また、本日の課題がございましたら教えていただけると幸いです。
@@ -25,15 +25,15 @@ const emailSlice = createSlice({
        
         ーーーーーーーーーーーーーーーーーーーーー
   
-        {name}
+        ${state.inputvalue.name}
 
-        {university} {grade}年
+        ${state.inputvalue.university} ${state.inputvalue.grade}年
 
-        学籍番号 : {id}
+        学籍番号 :${state.inputvalue.id}
 
-        メールアドレス : {mail}
+        メールアドレス :${state.inputvalue.mail}
 
-        電話番号 : {number}
+        電話番号 : ${state.inputvalue.number}
    
  
         ーーーーーーーーーーーーーーーーーーーーー`;
@@ -41,5 +41,5 @@ const emailSlice = createSlice({
   },
 });
 
-export const { setEmailTemplate } = emailSlice.actions;
-export default emailSlice.reducer;
+export const { setEmailTemplate } = EmailSlice.actions;
+export default EmailSlice.reducer;
