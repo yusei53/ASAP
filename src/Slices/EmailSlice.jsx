@@ -12,37 +12,31 @@ const emailSlice = createSlice({
     setEmailTemplate: (state, action) => {
       const { name, value } = action.payload;
       state.inputvalue = { ...state.inputvalue, [name]: value };
-      state.emailTemplate = ```{teacher}先生 お忙しいところ失礼致します。
+      state.emailTemplate = `{teacher}先生 お忙しいところ失礼致します。
         {university} {grade}年 {name}です。
-
         {reasonText}
-        <br />
-        <br />
+   
         申し訳ありませんが、{date} {time}限の{lesson}
         の講義は欠席させてください。
-        <br />
-        <br />
+
         また、本日の課題がございましたら教えていただけると幸いです。
-        <br />
+      
         お手数おかけしますが、どうぞ宜しくお願い致します。
-        <br />
-        <br />
-        <br />
-        <br />
-        ーーーーーーーーーーーーーーーーーーーーー <br />
-        <br />
+       
+        ーーーーーーーーーーーーーーーーーーーーー
+  
         {name}
-        <br />
+
         {university} {grade}年
-        <br />
+
         学籍番号 : {id}
-        <br />
+
         メールアドレス : {mail}
-        <br />
+
         電話番号 : {number}
-        <br />
-        <br />
-        ーーーーーーーーーーーーーーーーーーーーー```;
+   
+ 
+        ーーーーーーーーーーーーーーーーーーーーー`;
     },
   },
 });
