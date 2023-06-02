@@ -9,14 +9,8 @@ export const UniversityPage = () => {
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    // setInputValues((prev) => ({ ...prev, [name]: value }));
-
-    console.log(e.target);
-    dispatch(setEmailTemplate({ name: name, value: value }));
-    if (name === "reason") {
-      dispatch(setEmailTemplate({ name: "reason", value: value }));
-    }
+    const { name, value } = e.target.value;
+    dispatch(setEmailTemplate({ name: [name], value: value }));
   };
 
   const [isCopied, setIsCopied] = useState(false);
@@ -27,9 +21,13 @@ export const UniversityPage = () => {
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 1000);
   };
+  const emailTemplate = useSelector((state) => state.emailTemplate);
+  const inputValues = useSelector((state) => state.inputValues) || {};
 
-  const text = useSelector((state) => state.emailTemplate);
-  const inputValues = useSelector((state) => state.inputValues);
+  console.log(inputValues);
+  console.log(inputValues.teacher);
+  console.log(inputValues.university);
+  console.log(inputValues.grade);
 
   const handleUniversityButtonClick = () => {
     const mailto = encodeURIComponent(
@@ -42,7 +40,7 @@ export const UniversityPage = () => {
       }${inputValues.lesson || "{ 講義名 }"}欠席のご連絡`
     );
 
-    const body = encodeURIComponent(text);
+    const body = encodeURIComponent(emailTemplate);
 
     window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
   };

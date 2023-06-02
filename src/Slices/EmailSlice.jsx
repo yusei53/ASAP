@@ -2,9 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   emailTemplate: "", // メールのテンプレートを保持するステート
-  inputValues: {
-    reason: "",
-  },
+  inputValues: {},
 };
 
 const EmailSlice = createSlice({
