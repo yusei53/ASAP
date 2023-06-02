@@ -2,21 +2,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   emailTemplate: "", // メールのテンプレートを保持するステート
-  inputvalue: {},
+  inputValues: {
+    reason: "",
+  },
 };
 
-const emailSlice = createSlice({
+const EmailSlice = createSlice({
   name: "email",
   initialState,
   reducers: {
     setEmailTemplate: (state, action) => {
       const { name, value } = action.payload;
-      state.inputvalue = { ...state.inputvalue, [name]: value };
-      state.emailTemplate = `{teacher}先生 お忙しいところ失礼致します。
-        {university} {grade}年 {name}です。
-        {reasonText}
+      state.inputValues = { ...state.inputValues, [name]: value };
+      state.emailTemplate = `${state.inputValues.teacher} 先生 お忙しいところ失礼致します。
+        ${state.inputValues.university} ${state.inputValues.grade}年 ${state.inputValues.name}です。
+        ${state.inputValues.reasontext}
    
-        申し訳ありませんが、{date} {time}限の{lesson}
+        申し訳ありませんが、${state.inputValues.date} ${state.inputValues.time}限の${state.inputValues.lesson}
         の講義は欠席させてください。
 
         また、本日の課題がございましたら教えていただけると幸いです。
@@ -25,15 +27,15 @@ const emailSlice = createSlice({
        
         ーーーーーーーーーーーーーーーーーーーーー
   
-        {name}
+        ${state.inputValues.name}
 
-        {university} {grade}年
+        ${state.inputValues.university} ${state.inputValues.grade}年
 
-        学籍番号 : {id}
+        学籍番号 :${state.inputValues.id}
 
-        メールアドレス : {mail}
+        メールアドレス :${state.inputValues.mail}
 
-        電話番号 : {number}
+        電話番号 : ${state.inputValues.number}
    
  
         ーーーーーーーーーーーーーーーーーーーーー`;
@@ -41,5 +43,5 @@ const emailSlice = createSlice({
   },
 });
 
-export const { setEmailTemplate } = emailSlice.actions;
-export default emailSlice.reducer;
+export const { setEmailTemplate } = EmailSlice.actions;
+export default EmailSlice.reducer;

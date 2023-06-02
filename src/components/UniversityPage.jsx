@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "./Header";
 import { UniText } from "./UniText";
+import { useSelector, useDispatch } from "react-redux";
+import { setEmailTemplate } from "../Slices/EmailSlice";
 
 export const UniversityPage = () => {
-  const [inputValues, setInputValues] = useState({});
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setInputValues((prev) => ({ ...prev, [name]: value }));
+    // setInputValues((prev) => ({ ...prev, [name]: value }));
+
+    console.log(e.target);
+    dispatch(setEmailTemplate({ name: name, value: value }));
+    if (name === "reason") {
+      dispatch(setEmailTemplate({ name: "reason", value: value }));
+    }
   };
 
   const [isCopied, setIsCopied] = useState(false);
@@ -20,6 +28,9 @@ export const UniversityPage = () => {
     setTimeout(() => setIsCopied(false), 1000);
   };
 
+  const text = useSelector((state) => state.emailTemplate);
+  const inputValues = useSelector((state) => state.inputValues);
+
   const handleUniversityButtonClick = () => {
     const mailto = encodeURIComponent(
       `${inputValues.mailto || "example@gmail.com"}`
@@ -30,7 +41,8 @@ export const UniversityPage = () => {
         inputValues.time || "{ 何限 }"
       }${inputValues.lesson || "{ 講義名 }"}欠席のご連絡`
     );
-    const body = encodeURIComponent(`コピーしたものを貼り付けてね！`);
+
+    const body = encodeURIComponent(text);
 
     window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
   };

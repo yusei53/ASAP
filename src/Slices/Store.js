@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { emailSlice } from "./EmailSlice";
+import EmailSlice from "./EmailSlice";
 
-export const store = configureStore({
+export const Store = configureStore({
   reducer: {
-    todo: emailSlice,
+    todo: EmailSlice,
   },
 });
