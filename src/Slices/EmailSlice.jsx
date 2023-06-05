@@ -10,8 +10,11 @@ const EmailSlice = createSlice({
   initialState,
   reducers: {
     setEmailTemplate: (state, action) => {
+      console.log("bbb");
       const { name, value } = action.payload;
-      state.inputValues = { ...state.inputValues, [name]: value };
+      state.inputValues[name] = value;
+      console.log(name);
+      console.log(value);
       state.emailTemplate = `${state.inputValues.teacher} 先生 お忙しいところ失礼致します。
         ${state.inputValues.university} ${state.inputValues.grade}年 ${state.inputValues.name}です。
         ${state.inputValues.reasontext}
@@ -37,6 +40,7 @@ const EmailSlice = createSlice({
    
  
         ーーーーーーーーーーーーーーーーーーーーー`;
+      console.log(state.inputValues);
     },
   },
 });
