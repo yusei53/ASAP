@@ -9,8 +9,9 @@ export const UniversityPage = () => {
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target.value;
-    dispatch(setEmailTemplate({ name: [name], value: value }));
+    console.log("aaa");
+    const { name, value } = e.target;
+    dispatch(setEmailTemplate({ name: name, value: value }));
   };
 
   const [isCopied, setIsCopied] = useState(false);
@@ -22,12 +23,7 @@ export const UniversityPage = () => {
     setTimeout(() => setIsCopied(false), 1000);
   };
   const emailTemplate = useSelector((state) => state.emailTemplate);
-  const inputValues = useSelector((state) => state.inputValues) || {};
-
-  console.log(inputValues);
-  console.log(inputValues.teacher);
-  console.log(inputValues.university);
-  console.log(inputValues.grade);
+  const inputValues = useSelector((state) => state.inputValues);
 
   const handleUniversityButtonClick = () => {
     const mailto = encodeURIComponent(
@@ -65,7 +61,7 @@ export const UniversityPage = () => {
                   </div>
                   <SSelect
                     name="reason"
-                    value={inputValues.reason || ""}
+                    value={inputValues ? inputValues.reason : ""}
                     onChange={handleInputChange}
                   >
                     <option value="selectReeason">
@@ -90,7 +86,7 @@ export const UniversityPage = () => {
                   <SSInput
                     name="mailto"
                     placeholder="送信先のメールアドレス"
-                    value={inputValues.mailto || ""}
+                    value={inputValues ? inputValues.mail : ""}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -103,62 +99,62 @@ export const UniversityPage = () => {
                     <SInput
                       name="teacher"
                       placeholder="教授の名前"
-                      value={inputValues.teacher || ""}
+                      // value={inputValues ? inputValues.teacher : ""}
                       onChange={handleInputChange}
                     />
                     <SInput
                       name="university"
                       placeholder="大学学部学科"
-                      value={inputValues.university || ""}
+                      value={inputValues ? inputValues.university : ""}
                       onChange={handleInputChange}
                     />
                     <SInput
                       name="grade"
                       placeholder="学年（数字のみ）"
-                      value={inputValues.grade || ""}
+                      value={inputValues ? inputValues.grade : ""}
                       onChange={handleInputChange}
                     />
                     <SInput
                       name="name"
                       placeholder="氏名"
-                      value={inputValues.name || ""}
+                      value={inputValues ? inputValues.name : ""}
                       onChange={handleInputChange}
                     />
                     <SInput
                       name="date"
                       placeholder="日付（◯月◯日)"
-                      value={inputValues.date || ""}
+                      value={inputValues ? inputValues.date : ""}
                       onChange={handleInputChange}
                     />
                     <SInput
                       name="time"
                       placeholder="何限目（数字のみ）"
-                      value={inputValues.time || ""}
+                      value={inputValues ? inputValues.time : ""}
                       onChange={handleInputChange}
                     />
                     <SInput
                       name="lesson"
                       placeholder="講義名"
-                      value={inputValues.lesson || ""}
+                      value={inputValues ? inputValues.lesson : ""}
                       onChange={handleInputChange}
                     />
 
                     <SInput
                       name="id"
                       placeholder="学籍番号"
-                      value={inputValues.id || ""}
+                      value={inputValues ? inputValues.id : ""}
                       onChange={handleInputChange}
                     />
                     <SInput
                       name="mail"
                       placeholder="メールアドレス"
-                      value={inputValues.mail || ""}
+                      value={inputValues ? inputValues.mail : ""}
                       onChange={handleInputChange}
                     />
                     <SInput
                       name="number"
                       placeholder="電話番号"
-                      value={inputValues.number || ""}
+                      value={inputValues ? inputValues.number : ""}
                       onChange={handleInputChange}
                     />
                   </SElement>
@@ -177,17 +173,17 @@ export const UniversityPage = () => {
             </SCopyButton>
             <SCopyText id="copy-text">
               <UniText
-                teacher={inputValues.teacher || "{ 教授の名前 }"}
-                university={inputValues.university || "{ 大学学部学科 }"}
-                grade={inputValues.grade || "{ 学年 }"}
-                name={inputValues.name || "{ 氏名 }"}
-                date={inputValues.date || "{ 日付（○月○日) }"}
-                time={inputValues.time || "{ 何限目 }"}
-                lesson={inputValues.lesson || "{ 講義名 }"}
-                mail={inputValues.mail || "{ 自身のメールアドレス }"}
-                id={inputValues.id || "{ 学籍番号 }"}
-                number={inputValues.number || "{ 電話番号 }"}
-                reason={inputValues.reason}
+                teacher={inputValues ? inputValues.teacher : "ああああ"}
+                // university={inputValues.university || "{ 大学学部学科 }"}
+                // grade={inputValues.grade || "{ 学年 }"}
+                // name={inputValues.name || "{ 氏名 }"}
+                // date={inputValues.date || "{ 日付（○月○日) }"}
+                // time={inputValues.time || "{ 何限目 }"}
+                // lesson={inputValues.lesson || "{ 講義名 }"}
+                // mail={inputValues.mail || "{ 自身のメールアドレス }"}
+                // id={inputValues.id || "{ 学籍番号 }"}
+                // number={inputValues.number || "{ 電話番号 }"}
+                // reason={inputValues.reason}
               />
             </SCopyText>
           </RightElement>
