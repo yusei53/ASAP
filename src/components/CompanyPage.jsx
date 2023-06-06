@@ -34,7 +34,39 @@ export const CompanyPage = () => {
     };
 
     const subject = getSubject();
-    const body = encodeURIComponent(`コピーしたものを貼り付けてね！`);
+
+    const body = encodeURIComponent(`${
+      inputValues.company || "{ 会社名（株式会社〇〇) }"
+    } 人事部 採用ご担当 ${inputValues.yourname || "{ 担当者お名前 }"}}様
+お世話になっております。${inputValues.university || "{ 大学学部学科 }"}${
+      inputValues.grade || "{ 学年 }"
+    }年${inputValues.name || "{ 名前 }"}です。
+この度は、内定のご連絡をいただき、誠にありがとうございます。
+${inputValues.reason || "{ 辞退理由 }"}
+
+選考では、書類に目を通していただいたり面接を実施していただいたりと、
+
+ご多忙な中でお時間を割いていただきながら、このような形となり申し訳ございません。
+
+本来であれば、直接お伺いしお詫びをするべきところではございますが、
+このようにメールでのご連絡となりましたことを、
+何卒ご容赦いただきたくお願い申し上げます。
+
+末筆ながら、貴社の益々のご発展をお祈り申し上げます。
+
+ーーーーーーーーーーーーーーーーーーーーー
+
+${inputValues.name || "{ 名前 }"}
+
+${inputValues.university || "{ 大学学部学科 }"}
+${inputValues.grade || "{ 学年 }"}
+年
+
+メールアドレス : ${inputValues.grade || "{ 自身のメールアドレス }"}
+
+電話番号 : ${inputValues.number || "{ 電話番号 }"}
+
+ーーーーーーーーーーーーーーーーーーーーー`);
 
     window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
   };
