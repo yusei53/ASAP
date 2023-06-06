@@ -27,16 +27,16 @@ export const WelcomePage = () => {
         <AnimatedWelcomeContainer>
           <Header />
           <Container>
-            <Text>どこにメールを送るのか選択してね！</Text>
+            <Text>送信先を選択しよう！</Text>
             <ButtonContainer>
               <StyledLink to="/university">
-                <Button>大学(例:講義欠席)</Button>
+                <Button>大学[講義欠席]</Button>
               </StyledLink>
               <StyledLink to="/part-time">
-                <Button>バイト(例:バイト欠席、遅刻)</Button>
+                <Button>バイト[バイト欠席・遅刻]</Button>
               </StyledLink>
               <StyledLink to="/company">
-                <Button>企業、会社(例:内定、インターン内定辞退)</Button>
+                <Button>企業[インターン内定・内定辞退]</Button>
               </StyledLink>
             </ButtonContainer>
           </Container>
@@ -90,7 +90,8 @@ const TextOverlay = styled.div`
 `;
 
 const Text = styled.div`
-  font-size: 48px;
+  margin: 0 auto;
+  font-size: 50px;
   font-weight: bold;
   text-align: center;
 `;
@@ -100,10 +101,11 @@ const Container = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  margin: 0 auto;
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr));
+  gap: 50px;
 `;
 
 const StyledLink = styled(Link)`
