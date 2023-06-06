@@ -43,7 +43,7 @@ const TextOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: ${fadeOut} 1s ease 3s forwards;
+  animation: ${fadeOut} 1s ease 1s forwards;
 `;
 
 const Text = styled.div`
@@ -86,6 +86,19 @@ const Button = styled.button`
   }
 `;
 
+const slideIn = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+
+const AnimatedWelcomeContainer = styled(WelcomeContainer)`
+  animation: ${slideIn} 1s ease;
+`;
+
 export const WelcomePage = () => {
   const [showText, setShowText] = useState(true);
 
@@ -108,21 +121,23 @@ export const WelcomePage = () => {
       )}
       {!showText && (
         <>
-          <Header />
-          <Container>
-            <Text>どこにメールを送るのか選択してね！</Text>
-            <ButtonContainer>
-              <StyledLink to="/university">
-                <Button>大学(例:講義欠席)</Button>
-              </StyledLink>
-              <StyledLink to="/part-time">
-                <Button>バイト(例:バイト欠席、遅刻)</Button>
-              </StyledLink>
-              <StyledLink to="/company">
-                <Button>企業、会社(例:内定、インターン内定辞退)</Button>
-              </StyledLink>
-            </ButtonContainer>
-          </Container>
+          <AnimatedWelcomeContainer>
+            <Header />
+            <Container>
+              <Text>どこにメールを送るのか選択してね！</Text>
+              <ButtonContainer>
+                <StyledLink to="/university">
+                  <Button>大学(例:講義欠席)</Button>
+                </StyledLink>
+                <StyledLink to="/part-time">
+                  <Button>バイト(例:バイト欠席、遅刻)</Button>
+                </StyledLink>
+                <StyledLink to="/company">
+                  <Button>企業、会社(例:内定、インターン内定辞退)</Button>
+                </StyledLink>
+              </ButtonContainer>
+            </Container>
+          </AnimatedWelcomeContainer>
         </>
       )}
     </WelcomeContainer>
