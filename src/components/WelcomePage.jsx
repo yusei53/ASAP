@@ -3,6 +3,49 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import { Header } from "./Header";
 
+export const WelcomePage = () => {
+  const [showText, setShowText] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowText(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  return (
+    <WelcomeContainer>
+      {showText && (
+        <TextOverlay>
+          <Text>メールを書く時間すらも惜しんでしまうあなたへ</Text>
+        </TextOverlay>
+      )}
+      {!showText && (
+        <AnimatedWelcomeContainer>
+          <Header />
+          <Container>
+            <Text>どこにメールを送るのか選択してね！</Text>
+            <ButtonContainer>
+              <StyledLink to="/university">
+                <Button>大学(例:講義欠席)</Button>
+              </StyledLink>
+              <StyledLink to="/part-time">
+                <Button>バイト(例:バイト欠席、遅刻)</Button>
+              </StyledLink>
+              <StyledLink to="/company">
+                <Button>企業、会社(例:内定、インターン内定辞退)</Button>
+              </StyledLink>
+            </ButtonContainer>
+          </Container>
+        </AnimatedWelcomeContainer>
+      )}
+    </WelcomeContainer>
+  );
+};
+
 const fadeIn = keyframes`
   0% {
     opacity: 0;
@@ -98,48 +141,3 @@ const slideIn = keyframes`
 const AnimatedWelcomeContainer = styled(WelcomeContainer)`
   animation: ${slideIn} 1s ease;
 `;
-
-export const WelcomePage = () => {
-  const [showText, setShowText] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowText(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
-  return (
-    <WelcomeContainer>
-      {showText && (
-        <TextOverlay>
-          <Text>メールを書く時間すらも惜しんでしまうあなたへ</Text>
-        </TextOverlay>
-      )}
-      {!showText && (
-        <>
-          <AnimatedWelcomeContainer>
-            <Header />
-            <Container>
-              <Text>どこにメールを送るのか選択してね！</Text>
-              <ButtonContainer>
-                <StyledLink to="/university">
-                  <Button>大学(例:講義欠席)</Button>
-                </StyledLink>
-                <StyledLink to="/part-time">
-                  <Button>バイト(例:バイト欠席、遅刻)</Button>
-                </StyledLink>
-                <StyledLink to="/company">
-                  <Button>企業、会社(例:内定、インターン内定辞退)</Button>
-                </StyledLink>
-              </ButtonContainer>
-            </Container>
-          </AnimatedWelcomeContainer>
-        </>
-      )}
-    </WelcomeContainer>
-  );
-};
