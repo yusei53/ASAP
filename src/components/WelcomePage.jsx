@@ -97,7 +97,7 @@ const Text = styled.div`
   margin-top: 3%;
   @media (max-width: 768px) {
     margin-top: 10%;
-    font-size: 35px;
+    font-size: 33px;
   }
 `;
 
@@ -123,7 +123,7 @@ const StyledLink = styled(Link)`
 
 const Button = styled.button`
   width: 400px;
-  background-color: #d3d3d3;
+  background-color: #fca311;
   color: black;
   padding: 10px 20px;
   border: none;
@@ -135,9 +135,12 @@ const Button = styled.button`
   line-height: 3;
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: 0.5s all;
 
   &:hover {
     background-color: #ff7c03;
+    transform: scale(1.2, 1.2);
+    transition: 0.5s all;
   }
 
   @media (max-width: 768px) {
