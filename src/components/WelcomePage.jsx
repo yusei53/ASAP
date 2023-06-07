@@ -94,6 +94,11 @@ const Text = styled.div`
   font-size: 50px;
   font-weight: bold;
   text-align: center;
+  margin-top: 3%;
+  @media (max-width: 768px) {
+    margin-top: 10%;
+    font-size: 35px;
+  }
 `;
 
 const Container = styled.div`
@@ -102,10 +107,13 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 4%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1fr));
   gap: 50px;
+  @media (max-width: 768px) {
+    margin-top: 7%;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -114,8 +122,9 @@ const StyledLink = styled(Link)`
 `;
 
 const Button = styled.button`
-  background-color: #fca311;
-  color: #fff;
+  width: 400px;
+  background-color: #d3d3d3;
+  color: black;
   padding: 10px 20px;
   border: none;
   border-radius: 16px;
@@ -123,11 +132,17 @@ const Button = styled.button`
   cursor: pointer;
   transition: background-color 0.3s;
   position: relative;
+  line-height: 3;
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   &:hover {
     background-color: #ff7c03;
+  }
+
+  @media (max-width: 768px) {
+    width: 333px;
+    font-size: 18px;
   }
 `;
 
