@@ -3,6 +3,6 @@ import EmailSlice from "./EmailSlice";
 
 export const Store = configureStore({
   reducer: {
-    todo: EmailSlice,
+    email: EmailSlice,
   },
 });
