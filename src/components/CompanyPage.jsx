@@ -25,6 +25,22 @@ export const CompanyPage = () => {
       `${inputValues.mailto || "example@gmail.com"}`
     );
 
+    const getReasonText = () => {
+      switch (inputValues.reason) {
+        case "CancelJob":
+          return `この度は、内定のご連絡をいただき、誠にありがとうございます。
+内定通知をいただき大変恐縮ですが、今回の内定を辞退させていただきたく、ご連絡いたしました。
+自分のキャリアについて検討した結果、他社とのご縁を感じ、御社の内定を辞退する決断にいたりました。`;
+        case "CancelIntern":
+          return `先日は長期インターンの採用連絡をいただきありがとうございました。
+大変申し訳ございませんが、この度、他企業様での長期インターン採用が決まったため、内定辞退をさせていただきたくご連絡をいたしました。
+お忙しい中、面接の機会をいただいたのにも関わらず、誠に申し訳ございません。`;
+        default:
+          return "";
+      }
+    };
+    const reasonText = getReasonText();
+
     const getSubject = () => {
       if (inputValues.reason === "CancelJob") {
         return encodeURIComponent("内定辞退のご連絡");
@@ -38,11 +54,13 @@ export const CompanyPage = () => {
     const body = encodeURIComponent(`${
       inputValues.company || "{ 会社名（株式会社〇〇) }"
     } 人事部 採用ご担当 ${inputValues.yourname || "{ 担当者お名前 }"}}様
+
+    
 お世話になっております。${inputValues.university || "{ 大学学部学科 }"}${
       inputValues.grade || "{ 学年 }"
     }年${inputValues.name || "{ 名前 }"}です。
-この度は、内定のご連絡をいただき、誠にありがとうございます。
-${inputValues.reason || "{ 辞退理由 }"}
+
+${reasonText || "{ 辞退理由 }"}
 
 選考では、書類に目を通していただいたり面接を実施していただいたりと、
 
