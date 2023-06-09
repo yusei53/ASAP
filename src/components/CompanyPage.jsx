@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Header } from "./Header";
 import { CompanyText } from "./CompanyText";
 
@@ -55,7 +55,7 @@ export const CompanyPage = () => {
       inputValues.company || "{ 会社名（株式会社〇〇) }"
     } 人事部 採用ご担当 ${inputValues.yourname || "{ 担当者お名前 }"}}様
 
-    
+
 お世話になっております。${inputValues.university || "{ 大学学部学科 }"}${
       inputValues.grade || "{ 学年 }"
     }年${inputValues.name || "{ 名前 }"}です。
@@ -217,11 +217,23 @@ ${inputValues.grade || "{ 学年 }"}
   );
 };
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const SBDiv = styled.div`
   background-color: #e6f9f8;
   min-height: 100vh; /* ページの最小の高さを100vhに設定 */
   flex-direction: column; /* 子要素を縦方向に配置 */
   align-items: center; /* 子要素を中央に配置 */
+  animation: ${fadeIn} 1s ease-in-out; /* アニメーションの適用 */
 `;
 
 const SDiv = styled.div`
