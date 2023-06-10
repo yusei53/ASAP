@@ -9,7 +9,7 @@ export const WelcomePage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowText(false);
-    }, 3000);
+    }, 2800);
 
     return () => {
       clearTimeout(timer);
