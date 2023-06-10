@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Header } from "./Header";
 import { PartTimeText } from "./PartTimeText";
 
@@ -130,11 +130,23 @@ export const PartTimePage = () => {
   );
 };
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const SBDiv = styled.div`
   background-color: #e6f9f8;
   min-height: 100vh; /* ページの最小の高さを100vhに設定 */
   flex-direction: column; /* 子要素を縦方向に配置 */
   align-items: center; /* 子要素を中央に配置 */
+  animation: ${fadeIn} 1s ease-in-out;
 `;
 
 const SDiv = styled.div`
