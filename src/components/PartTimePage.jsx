@@ -25,12 +25,35 @@ export const PartTimePage = () => {
       `${inputValues.mailto || "example@gmail.com"}`
     );
 
-    const subject = encodeURIComponent(
-      `${inputValues.date || "{ 日付（○月○日) }"}${
-        inputValues.time || "{ 何限 }"
-      }${inputValues.lesson || "{ 講義名 }"}欠席のご連絡`
-    );
-    const body = encodeURIComponent(`コピーしたものを貼り付けてね！`);
+    const getReasonText = () => {
+      switch (inputValues.reason) {
+        case "problem":
+          return `本日なのですが、シフトを勘違いをしてしまい、日時を誤解してしまっていたため、出勤できそうにありません。`;
+        case "fever":
+          return `大変申し訳ないのですが、昨日から体調が優れず、今日も回復しないので、お休みをいただけないでしょうか。長引くようでしたら、再度改めて、連絡させていただきます。当日の連絡となってしまい、大変申し訳ありません。`;
+        case "funeral":
+          return `先日、身内に不幸があったため、急で申し訳ありませんが、本日お休みさせていただきたいです。当日の連絡となってしまい、大変申し訳ありません。`;
+        case "pets":
+          return "の具合が悪く、病院に連れて行きたいのですが、連れて行けるのが自分しかいないので、本日バイトをお休みさせていただけないでしょうか。当日の連絡となってしまい、大変申し訳ありません。";
+        default:
+          return "";
+      }
+    };
+
+    const reasonText = getReasonText();
+
+    const subject = encodeURIComponent(`シフト欠勤のお願い`);
+    const body = encodeURIComponent(`        
+    お疲れ様です。本日${
+      inputValues.time || "{ 時間 }"
+    }時からシフトに入っている${inputValues.name || "{ お名前 }"}です。 
+       
+    ${reasonText || "欠席理由"}
+      
+    再度、ご迷惑とご心配をおかけしましたことを深くお詫び申し上げます。
+       
+    お手数おかけしますが、どうぞ宜しくお願い致します。
+      `);
 
     window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
   };
