@@ -64,8 +64,10 @@ export const UniversityPage = () => {
     また、本日の課題がございましたら教えていただけると幸いです。
     
     お手数おかけしますが、どうぞ宜しくお願い致します。
+
+
      
-    ーーーーーーーーーーーーーーーーーーーーー 
+    ーーーーーーーーーーーーーーーーーーー
      
     ${inputValues.name || "{ 名前 }"}
       
@@ -79,7 +81,7 @@ export const UniversityPage = () => {
 
     電話番号 : ${inputValues.number || "{ 番号 }"}
      
-    ーーーーーーーーーーーーーーーーーーーーー
+    ーーーーーーーーーーーーーーーーーーー
     `);
 
     window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
