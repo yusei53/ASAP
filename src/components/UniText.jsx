@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
 
 export const UniText = (props) => {
   const {
@@ -18,8 +17,6 @@ export const UniText = (props) => {
   } = props;
 
   const [reasonText, setReasonText] = useState("");
-
-  const inputValues = useSelector((state) => state.inputValues);
 
   useEffect(() => {
     switch (reason) {
