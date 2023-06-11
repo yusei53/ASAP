@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 export const Header = () => {
   return (
     <SHeader>
-      <SString>A P</SString>
+      <SString>A S A P</SString>
     </SHeader>
   );
 };
