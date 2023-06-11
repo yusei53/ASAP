@@ -25,12 +25,62 @@ export const UniversityPage = () => {
       `${inputValues.mailto || "example@gmail.com"}`
     );
 
+    const getReasonText = () => {
+      switch (inputValues.reason) {
+        case "recruitment":
+          return `本日なのですが、就職活動のため、講義を受けれそうにありません。`;
+        case "fever":
+          return `本日なのですが、体調を崩してしまい、講義を受けられそうにありません。`;
+        case "funeral":
+          return `先日、身内に不幸があったため、急遽欠席させていただきたく、失礼とは存じますがここに取り急ぎメールにてご連絡させていただきます。`;
+        case "marry":
+          return `本日なのですが、冠婚葬祭のため、講義を受けれそうにありません。`;
+        case "delay":
+          return `ただいま大学に向かっているのですが、人身事故の影響で電車が止まってしまい、講義時間内の到着が難しいとのことです。`;
+        default:
+          return "";
+      }
+    };
+
+    const reasonText = getReasonText();
+
     const subject = encodeURIComponent(
       `${inputValues.date || "{ 日付（○月○日) }"}${
         inputValues.time || "{ 何限 }"
       }${inputValues.lesson || "{ 講義名 }"}欠席のご連絡`
     );
-    const body = encodeURIComponent(`コピーしたものを貼り付けてね！`);
+    const body = encodeURIComponent(`
+    ${inputValues.teacher || "{ 教授の名前 }"}先生 お忙しいところ失礼致します。
+    ${inputValues.university || "{ 大学学部学科 }"} ${
+      inputValues.grade || "{ 学年 }"
+    }年 ${inputValues.name || "{ 名前 }"}です。
+
+    ${reasonText || "{ 欠席理由 }"}
+     
+    申し訳ありませんが、${inputValues.date || "{ 日付 }"} ${
+      inputValues.time || "{ 何限目 }"
+    }限の${inputValues.lesson || "{ 授業 }"}の講義は欠席させてください。
+     
+    また、本日の課題がございましたら教えていただけると幸いです。
+    
+    お手数おかけしますが、どうぞ宜しくお願い致します。
+     
+    ーーーーーーーーーーーーーーーーーーーーー 
+     
+    ${inputValues.name || "{ 名前 }"}
+      
+    ${inputValues.university || "{ 大学学部学科 }"} ${
+      inputValues.grade || "{ 学年 }"
+    }年
+        
+    学籍番号 : ${inputValues.id || "{ 学籍番号 }"}
+      
+    メールアドレス : ${inputValues.mail || "{ 自身のメールアドレス }"}
+
+    電話番号 : ${inputValues.number || "{ 番号 }"}
+     
+    ーーーーーーーーーーーーーーーーーーーーー
+    `);
 
     window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
   };
