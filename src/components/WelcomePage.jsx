@@ -21,6 +21,11 @@ export const WelcomePage = () => {
       {showText && (
         <TextOverlay>
           <Text>メールを書く時間すらも惜しんでしまうあなたへ</Text>
+          <SText>
+            メールを書く時間すらも
+            <br />
+            惜しんでしまうあなたへ
+          </SText>
         </TextOverlay>
       )}
       {!showText && (
@@ -96,8 +101,19 @@ const Text = styled.div`
   text-align: center;
   margin-top: 3%;
   @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const SText = styled.div`
+  display: none;
+  @media (max-width: 768px) {
     margin-top: 10%;
-    font-size: 33px;
+    font-size: 30px;
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
   }
 `;
 
