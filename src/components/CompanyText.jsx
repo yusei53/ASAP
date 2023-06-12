@@ -77,7 +77,7 @@ const SBox = styled.div`
   background-color: white;
   width: 93%;
   padding: 16px;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   @media (max-width: 600px) {
     width: 88%;
   }
