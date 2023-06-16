@@ -47,7 +47,7 @@ export const UniversityPage = () => {
     const subject = encodeURIComponent(
       `${inputValues.date || "{ 日付（○月○日) }"}${
         inputValues.time || "{ 何限 }"
-      }${inputValues.lesson || "{ 講義名 }"}欠席のご連絡`
+      }限${inputValues.lesson || "{ 講義名 }"}欠席のご連絡`
     );
     const body = encodeURIComponent(`
     ${inputValues.teacher || "{ 教授の名前 }"}先生 お忙しいところ失礼致します。
