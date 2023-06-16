@@ -142,7 +142,7 @@ export const PartTimePage = () => {
             <SCopyText id="copy-text">
               <PartTimeText
                 name={inputValues.name || "{ 氏名 }"}
-                time={inputValues.date || "{ 時間 }"}
+                time={inputValues.time || "{ 時間 }"}
                 reason={inputValues.reason}
               />
             </SCopyText>

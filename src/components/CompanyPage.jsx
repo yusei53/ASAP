@@ -53,7 +53,7 @@ export const CompanyPage = () => {
 
     const body = encodeURIComponent(`${
       inputValues.company || "{ 会社名（株式会社〇〇) }"
-    } 人事部 採用ご担当 ${inputValues.yourname || "{ 担当者お名前 }"}}様
+    } 人事部 採用ご担当 ${inputValues.yourname || "{ 担当者お名前 }"}様
 
 
 お世話になっております。${inputValues.university || "{ 大学学部学科 }"}${
